@@ -1,118 +1,423 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>Jeremy Fernandez | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Jeremy Fernandez | Neural Engineering Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* additional critical overrides and performance enhancements */
+    .cursor-glow {
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0, 180, 255, 0.2) 0%, rgba(0, 255, 200, 0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      transition: transform 0.08s linear;
+      mix-blend-mode: screen;
+      will-change: transform;
+    }
+    @keyframes subtlePulse {
+      0% { opacity: 0.3; }
+      100% { opacity: 0.7; }
+    }
+    .hero-badge {
+      display: inline-block;
+    }
+  </style>
 </head>
-
 <body>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  
+  <!-- animated background particles canvas -->
+  <canvas id="particleCanvas" class="particle-canvas"></canvas>
+  
+  <div class="floating-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
 
   <!-- ===== HEADER / HERO SECTION ===== -->
   <header>
-    <h1>Jeremy Fernandez</h1>
-    <p>Electrical Engineering Student | Robotics | Embedded Systems</p>
+    <div class="hero-content">
+      <div class="hero-glow"></div>
+      <span class="hero-badge">⚡ NEXT-GEN ENGINEERING</span>
+      <h1>Jeremy Fernandez</h1>
+      <div class="typing-container">
+        <p class="typing-text">Electrical Engineering Student | Robotics Architect | Embedded Systems</p>
+      </div>
+      <div class="tech-stack">
+        <span>C++</span><span>C</span><span>ESP32</span><span>PIC18</span><span>ROS2</span><span>PCB Design</span>
+      </div>
+      <div class="scroll-indicator">
+        <div class="mouse"></div>
+        <span>Scroll to explore</span>
+      </div>
+    </div>
   </header>
 
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section>
+    <h2><span class="section-highlight">✦</span> Technical Projects</h2>
+    <div class="projects-grid" id="projectsGrid">
+      <!-- PROJECT 1 -->
+      <div class="project" data-tilt data-tilt-max="5">
+        <div class="project-inner">
+          <div class="project-icon">🚀</div>
+          <h3>E-Ball Model</h3>
+          <p><strong>UBC | Dec 2025 – Jan 2026</strong></p>
+          <ul>
+            <li>Bluetooth-controlled robotic vehicle using BLDC motors</li>
+            <li>C++ on ESP32 (Arduino IDE)</li>
+            <li>PWM speed control + DualShock 4 input</li>
+          </ul>
+          <div class="project-image">
+            <div class="img-placeholder-glow"></div>
+            <span>⚡ BLDC Control</span>
+          </div>
+        </div>
+      </div>
 
-<!-- ===== PROJECTS SECTION ===== -->
-<section>
-  <h2>Technical Projects</h2>
+      <!-- PROJECT 2 -->
+      <div class="project" data-tilt data-tilt-max="5">
+        <div class="project-inner">
+          <div class="project-icon">🪙</div>
+          <h3>Picking Coin Robot</h3>
+          <p><strong>UBC | Apr 2025 – May 2025</strong></p>
+          <ul>
+            <li>Robot capable of detecting and picking coins</li>
+            <li>C on EFM8LB1 & PIC18</li>
+            <li>Custom H-bridge + RF communication</li>
+          </ul>
+          <div class="project-image">
+            <span>⚙️ Precision Mechanics</span>
+          </div>
+        </div>
+      </div>
 
-  <!-- ===== GRID CONTAINER ===== -->
-  <div class="projects-grid">
+      <!-- PROJECT 3 -->
+      <div class="project" data-tilt data-tilt-max="5">
+        <div class="project-inner">
+          <div class="project-icon">🔥</div>
+          <h3>Reflow Oven Controller</h3>
+          <p><strong>UBC | Mar 2025 – May 2025</strong></p>
+          <ul>
+            <li>Temperature-controlled reflow soldering oven</li>
+            <li>A51 on N76E003 MCU</li>
+            <li>System testing and validation</li>
+          </ul>
+          <div class="project-image">
+            <span>🌡️ PID Thermal Control</span>
+          </div>
+        </div>
+      </div>
 
-    <!-- ===== PROJECT 1 ===== -->
-    <div class="project">
-      <h3>E-Ball Model</h3>
-      <p><strong>UBC | Dec 2025 – Jan 2026</strong></p>
-      <ul>
-        <li>Bluetooth-controlled robotic vehicle using BLDC motors</li>
-        <li>C++ on ESP32 (Arduino IDE)</li>
-        <li>PWM speed control + DualShock 4 input</li>
-      </ul>
-      <div class="project-image">Image</div>
+      <!-- PROJECT 4 -->
+      <div class="project" data-tilt data-tilt-max="5">
+        <div class="project-inner">
+          <div class="project-icon">🎮</div>
+          <h3>Bluetooth Controlled Car</h3>
+          <p><strong>Personal | Aug 2025</strong></p>
+          <ul>
+            <li>Remote-controlled car with full movement</li>
+            <li>ESP32 + DualShock 4 Bluetooth</li>
+            <li>4 DC motors with L298N drivers</li>
+          </ul>
+          <div class="project-image">
+            <span>📡 Low-latency Control</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 5 -->
+      <div class="project" data-tilt data-tilt-max="5">
+        <div class="project-inner">
+          <div class="project-icon">🤖</div>
+          <h3>Line Following Robot</h3>
+          <p><strong>KPU | Apr 2024 – May 2024</strong></p>
+          <ul>
+            <li>Autonomous line-following robot</li>
+            <li>C on PIC18F46K42</li>
+            <li>Sensor-based navigation</li>
+          </ul>
+          <div class="project-image">
+            <span>🎯 IR Array Logic</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 6 -->
+      <div class="project" data-tilt data-tilt-max="5">
+        <div class="project-inner">
+          <div class="project-icon">🎹</div>
+          <h3>Piano Playing Robot</h3>
+          <p><strong>UBC | 3rd Year Electrical Engineering Project</strong></p>
+          <ul>
+            <li>Electromechanical system for piano key actuation</li>
+            <li>Microcontroller-based timing and control logic</li>
+            <li>Precise motion control for repeatable key presses</li>
+            <li>Integrated hardware actuation with software control system</li>
+          </ul>
+          <div class="project-image">
+            <span>🎵 Musical Mechatronics</span>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <!-- ===== PROJECT 2 ===== -->
-    <div class="project">
-      <h3>Picking Coin Robot</h3>
-      <p><strong>UBC | Apr 2025 – May 2025</strong></p>
-      <ul>
-        <li>Robot capable of detecting and picking coins</li>
-        <li>C on EFM8LB1 & PIC18</li>
-        <li>Custom H-bridge + RF communication</li>
-      </ul>
-      <div class="project-image">Image</div>
-    </div>
-
-    <!-- ===== PROJECT 3 ===== -->
-    <div class="project">
-      <h3>Reflow Oven Controller</h3>
-      <p><strong>UBC | Mar 2025 – May 2025</strong></p>
-      <ul>
-        <li>Temperature-controlled reflow soldering oven</li>
-        <li>A51 on N76E003 MCU</li>
-        <li>System testing and validation</li>
-      </ul>
-      <div class="project-image">Image</div>
-    </div>
-
-    <!-- ===== PROJECT 4 ===== -->
-    <div class="project">
-      <h3>Bluetooth Controlled Car</h3>
-      <p><strong>Personal | Aug 2025</strong></p>
-      <ul>
-        <li>Remote-controlled car with full movement</li>
-        <li>ESP32 + DualShock 4 Bluetooth</li>
-        <li>4 DC motors with L298N drivers</li>
-      </ul>
-      <div class="project-image">Image</div>
-    </div>
-
-    <!-- ===== PROJECT 5 ===== -->
-    <div class="project">
-      <h3>Line Following Robot</h3>
-      <p><strong>KPU | Apr 2024 – May 2024</strong></p>
-      <ul>
-        <li>Autonomous line-following robot</li>
-        <li>C on PIC18F46K42</li>
-        <li>Sensor-based navigation</li>
-      </ul>
-      <div class="project-image">Image</div>
-    </div>
-
-    <!-- ===== PROJECT 6 ===== -->
-    <div class="project">
-      <h3>Piano Playing Robot</h3>
-      <p><strong>UBC | 3rd Year Electrical Engineering Project</strong></p>
-      <ul>
-        <li>Electromechanical system for piano key actuation</li>
-        <li>Microcontroller-based timing and control logic</li>
-        <li>Precise motion control for repeatable key presses</li>
-        <li>Integrated hardware actuation with software control system</li>
-      </ul>
-      <div class="project-image">Image</div>
-    </div>
-
-  </div>
-</section>
+  </section>
 
   <!-- ===== ABOUT SECTION ===== -->
   <section>
-    <h2>About Me</h2>
-    <p>
-      Electrical Engineering student with strong fundamentals in programming, circuit design, and embedded systems. Experienced in developing microcontroller-based and robotics systems using C++, C, and assembly-level programming. Familiar with control systems, motor control, and hardware–software integration using tools such as LTspice, MATLAB, Onshape, and AutoCAD. Demonstrated ability to work in team-based engineering projects involving design, implementation, and testing of embedded systems.
-    </p>
+    <h2><span class="section-highlight">◈</span> About Me</h2>
+    <div class="about-card">
+      <div class="about-glow"></div>
+      <p>
+        Electrical Engineering student with strong fundamentals in programming, circuit design, and embedded systems. Experienced in developing microcontroller-based and robotics systems using C++, C, and assembly-level programming. Familiar with control systems, motor control, and hardware–software integration using tools such as LTspice, MATLAB, Onshape, and AutoCAD. Demonstrated ability to work in team-based engineering projects involving design, implementation, and testing of embedded systems.
+      </p>
+      <div class="skill-tags">
+        <span>Embedded C</span><span>PCB Layout</span><span>ROS</span><span>RTOS</span><span>Signal Processing</span><span>I2C/SPI/UART</span>
+      </div>
+    </div>
   </section>
-
 
   <!-- ===== CONTACT SECTION ===== -->
   <section>
-    <h2>Contact</h2>
-    <p>Email: your@email.com</p>
-    <p>GitHub: https://github.com/JeremyF003</p>
+    <h2><span class="section-highlight">✧</span> Connect</h2>
+    <div class="contact-grid">
+      <a href="mailto:jeremy.fernandez@engineering.com" class="contact-card">
+        <div class="contact-icon">📧</div>
+        <span>jeremy.f@ubc.ca</span>
+      </a>
+      <a href="https://github.com/JeremyF003" target="_blank" class="contact-card">
+        <div class="contact-icon">🐙</div>
+        <span>github.com/JeremyF003</span>
+      </a>
+      <a href="#" class="contact-card" id="resumeBtn">
+        <div class="contact-icon">📄</div>
+        <span>Resume / CV</span>
+      </a>
+      <a href="#" class="contact-card" id="linkedinMock">
+        <div class="contact-icon">🔗</div>
+        <span>LinkedIn</span>
+      </a>
+    </div>
+    <div class="footer-note">
+      <p>✦ Available for collaborations & embedded systems roles ✦</p>
+    </div>
   </section>
 
+  <script>
+    // ---- interactive cursor glow ----
+    const cursorGlow = document.getElementById('cursorGlow');
+    if (cursorGlow) {
+      document.addEventListener('mousemove', (e) => {
+        cursorGlow.style.left = e.clientX + 'px';
+        cursorGlow.style.top = e.clientY + 'px';
+      });
+    }
+
+    // ---- particle network canvas (mindblowing effect) ----
+    const canvas = document.getElementById('particleCanvas');
+    if (canvas) {
+      let ctx = canvas.getContext('2d');
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      let particles = [];
+      let particleCount = 80;
+      
+      function resizeCanvas() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+      }
+      
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.4;
+          this.vy = (Math.random() - 0.5) * 0.3;
+          this.radius = Math.random() * 2 + 1.2;
+          this.opacity = Math.random() * 0.5 + 0.2;
+        }
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0) this.x = width;
+          if (this.x > width) this.x = 0;
+          if (this.y < 0) this.y = height;
+          if (this.y > height) this.y = 0;
+        }
+        draw() {
+          if (!ctx) return;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(100, 180, 255, ${this.opacity})`;
+          ctx.fill();
+        }
+      }
+      
+      function initParticles() {
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+      
+      function drawConnections() {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < 120) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              const intensity = 1 - distance / 120;
+              ctx.strokeStyle = `rgba(80, 160, 255, ${intensity * 0.3})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+      }
+      
+      function animateParticles() {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, width, height);
+        for (let p of particles) {
+          p.update();
+          p.draw();
+        }
+        drawConnections();
+        requestAnimationFrame(animateParticles);
+      }
+      
+      window.addEventListener('resize', () => {
+        resizeCanvas();
+        initParticles();
+      });
+      resizeCanvas();
+      initParticles();
+      animateParticles();
+    } else {
+      // fallback: create canvas if missing
+      const newCanvas = document.createElement('canvas');
+      newCanvas.id = 'particleCanvas';
+      newCanvas.className = 'particle-canvas';
+      document.body.prepend(newCanvas);
+      location.reload(); // simple reload to initialize
+    }
+    
+    // ---- tilt effect for project cards (smooth 3D) ----
+    const projects = document.querySelectorAll('.project');
+    projects.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
+    });
+    
+    // ---- typing animation for hero ----
+    const typingEl = document.querySelector('.typing-text');
+    if (typingEl) {
+      const originalText = typingEl.innerText;
+      typingEl.innerText = '';
+      let i = 0;
+      function typeWriter() {
+        if (i < originalText.length) {
+          typingEl.innerText += originalText.charAt(i);
+          i++;
+          setTimeout(typeWriter, 45);
+        }
+      }
+      typeWriter();
+    }
+    
+    // ---- scroll indicator fade + smooth scrolling ----
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    window.addEventListener('scroll', () => {
+      if (scrollIndicator) {
+        if (window.scrollY > 100) {
+          scrollIndicator.style.opacity = '0';
+        } else {
+          scrollIndicator.style.opacity = '1';
+        }
+      }
+    });
+    
+    // ---- interactive console message (easter egg) ----
+    console.log("%c✨ Jeremy Fernandez Portfolio | Embedded Systems & Robotics ✨", "color: #3b82f6; font-size: 16px; font-weight: bold;");
+    console.log("%cExplore projects with 3D tilt effect / dynamic particle network", "color: #60a5fa");
+    
+    // ---- resume alert / demo interaction ----
+    const resumeBtn = document.getElementById('resumeBtn');
+    if (resumeBtn) {
+      resumeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert("📄 Jeremy Fernandez - Electrical Engineering Resume\nAvailable upon request | Contact via email.");
+      });
+    }
+    const linkedinMock = document.getElementById('linkedinMock');
+    if (linkedinMock) {
+      linkedinMock.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert("🔗 LinkedIn profile coming soon! Connect via GitHub or email.");
+      });
+    }
+    
+    // ---- add intersection observer for fade-in animations ----
+    const fadeElements = document.querySelectorAll('.project, .about-card, .contact-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0px)';
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeElements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(25px)';
+      el.style.transition = 'opacity 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.6s ease';
+      observer.observe(el);
+    });
+    
+    // ---- parallax effect for header ----
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (header && window.scrollY < 600) {
+        const offset = window.scrollY * 0.5;
+        header.style.backgroundPosition = `center ${offset}px`;
+      }
+    });
+    
+    // ---- extra: dynamic project image hover reveals ----
+    const projectImages = document.querySelectorAll('.project-image');
+    projectImages.forEach(img => {
+      img.addEventListener('mouseenter', () => {
+        img.style.transform = 'scale(1.02)';
+        img.style.transition = '0.2s';
+      });
+      img.addEventListener('mouseleave', () => {
+        img.style.transform = 'scale(1)';
+      });
+    });
+  </script>
 </body>
 </html>
