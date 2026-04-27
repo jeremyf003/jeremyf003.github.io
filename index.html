@@ -1,124 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jeremy Fernandez | Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
-  
 <body>
-  <!-- ===== HERO / LANDING ===== -->
+
+  <!-- ===== HERO ===== -->
   <section class="hero">
 
     <div class="hero-center">
-      <h1>Jeremy Fernandez</h1>
-      <p>Electrical Engineering | Embedded Systems | Robotics</p>
+      <img src="profile.jpg" alt="Profile" class="profile-pic">
 
-      <!-- Down Arrow -->
+      <h1>Jeremy Fernandez</h1>
+
+      <p class="about">
+        Electrical Engineering student with experience in embedded systems, robotics,
+        and circuit design. Skilled in C, C++, and microcontroller-based systems
+        including ESP32, PIC, and real-time control applications.
+      </p>
+
       <div class="scroll-down" onclick="scrollToProjects()">
         ↓
+        <span>View Projects</span>
       </div>
     </div>
-    
-<!-- ===== PROJECTS SECTION ===== -->
-<section>
-  <h2>Technical Projects</h2>
 
-  <!-- ===== GRID CONTAINER ===== -->
-  <div class="projects-grid">
-
-    <!-- ===== PROJECT 1 ===== -->
-    <div class="project">
-      <h3>E-Ball Model</h3>
-      <p><strong>UBC | Dec 2025 – Jan 2026</strong></p>
-      <ul>
-        <li>Bluetooth-controlled robotic vehicle using BLDC motors</li>
-        <li>C++ on ESP32 (Arduino IDE)</li>
-        <li>PWM speed control + DualShock 4 input</li>
-      </ul>
-      <div class="project-image">Image</div>
-    </div>
-
-    <!-- ===== PROJECT 2 ===== -->
-    <div class="project">
-      <h3>Picking Coin Robot</h3>
-      <p><strong>UBC | Apr 2025 – May 2025</strong></p>
-      <ul>
-        <li>Robot capable of detecting and picking coins</li>
-        <li>C on EFM8LB1 & PIC18</li>
-        <li>Custom H-bridge + RF communication</li>
-      </ul>
-      <div class="project-image">Image</div>
-    </div>
-
-    <!-- ===== PROJECT 3 ===== -->
-    <div class="project">
-      <h3>Reflow Oven Controller</h3>
-      <p><strong>UBC | Mar 2025 – May 2025</strong></p>
-      <ul>
-        <li>Temperature-controlled reflow soldering oven</li>
-        <li>A51 on N76E003 MCU</li>
-        <li>System testing and validation</li>
-      </ul>
-      <div class="project-image">Image</div>
-    </div>
-
-    <!-- ===== PROJECT 4 ===== -->
-    <div class="project">
-      <h3>Bluetooth Controlled Car</h3>
-      <p><strong>Personal | Aug 2025</strong></p>
-      <ul>
-        <li>Remote-controlled car with full movement</li>
-        <li>ESP32 + DualShock 4 Bluetooth</li>
-        <li>4 DC motors with L298N drivers</li>
-      </ul>
-      <div class="project-image">Image</div>
-    </div>
-
-    <!-- ===== PROJECT 5 ===== -->
-    <div class="project">
-      <h3>Line Following Robot</h3>
-      <p><strong>KPU | Apr 2024 – May 2024</strong></p>
-      <ul>
-        <li>Autonomous line-following robot</li>
-        <li>C on PIC18F46K42</li>
-        <li>Sensor-based navigation</li>
-      </ul>
-      <div class="project-image">Image</div>
-    </div>
-
-    <!-- ===== PROJECT 6 ===== -->
-    <div class="project">
-      <h3>Piano Playing Robot</h3>
-      <p><strong>UBC | 3rd Year Electrical Engineering Project</strong></p>
-      <ul>
-        <li>Electromechanical system for piano key actuation</li>
-        <li>Microcontroller-based timing and control logic</li>
-        <li>Precise motion control for repeatable key presses</li>
-        <li>Integrated hardware actuation with software control system</li>
-      </ul>
-      <div class="project-image">Image</div>
-    </div>
-
-  </div>
-</section>
-
-  <!-- ===== ABOUT SECTION ===== -->
-  <section>
-    <h2>About Me</h2>
-    <p>
-      Electrical Engineering student with strong fundamentals in programming, circuit design, and embedded systems. Experienced in developing microcontroller-based and robotics systems using C++, C, and assembly-level programming. Familiar with control systems, motor control, and hardware–software integration using tools such as LTspice, MATLAB, Onshape, and AutoCAD. Demonstrated ability to work in team-based engineering projects involving design, implementation, and testing of embedded systems.
-    </p>
   </section>
 
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <h2>Technical Projects</h2>
 
-  <!-- ===== CONTACT SECTION ===== -->
+    <div class="projects-grid">
+
+      <!-- PROJECT -->
+      <div class="project">
+        <h3>Electromechanical Piano Actuation System</h3>
+        <p><strong>UBC | 3rd Year Project</strong></p>
+
+        <div class="tags">
+          <span>Embedded</span>
+          <span>C</span>
+          <span>Control</span>
+        </div>
+
+        <ul>
+          <li>Automated piano key actuation system</li>
+          <li>Microcontroller-based timing control</li>
+          <li>Precise and repeatable mechanical motion</li>
+        </ul>
+
+        <img src="piano.jpg" class="project-image">
+      </div>
+
+      <!-- PROJECT -->
+      <div class="project">
+        <h3>Bluetooth Robotics Platform</h3>
+        <p><strong>UBC | 2025</strong></p>
+
+        <div class="tags">
+          <span>ESP32</span>
+          <span>C++</span>
+          <span>BLDC</span>
+        </div>
+
+        <ul>
+          <li>Bluetooth-controlled robotic vehicle</li>
+          <li>PWM motor control system</li>
+          <li>DualShock 4 input integration</li>
+        </ul>
+
+        <img src="robot.jpg" class="project-image">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
   <section>
     <h2>Contact</h2>
-    <p>Email: your@email.com</p>
-    <p>GitHub: https://github.com/JeremyF003</p>
+
+    <div class="contact">
+      <a href="mailto:jeremy.f@ubc.ca">Email</a>
+      <a href="https://github.com/JeremyF003" target="_blank">GitHub</a>
+    </div>
   </section>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
