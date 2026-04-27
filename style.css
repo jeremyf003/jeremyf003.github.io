@@ -1,13 +1,14 @@
-/* ===== Global Styles ===== */
+/* ===== GLOBAL (applies to entire page) ===== */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   margin: 0;
-  line-height: 1.6;
-  color: #1a1a1a;
   background-color: #f8f9fb;
+  color: #1a1a1a;
+  line-height: 1.6;
 }
 
-/* ===== Header ===== */
+
+/* ===== HEADER / HERO ===== */
 header {
   background: #0f172a;
   color: white;
@@ -22,11 +23,11 @@ header h1 {
 
 header p {
   margin-top: 10px;
-  font-size: 1.1rem;
   color: #cbd5e1;
 }
 
-/* ===== Sections ===== */
+
+/* ===== SECTION LAYOUT ===== */
 section {
   max-width: 900px;
   margin: 60px auto;
@@ -34,68 +35,78 @@ section {
 }
 
 h2 {
-  font-size: 1.8rem;
-  margin-bottom: 25px;
   border-bottom: 2px solid #e5e7eb;
   padding-bottom: 10px;
+  margin-bottom: 25px;
 }
 
-/* ===== Project Cards ===== */
-.project {
-  display: flex;
+
+/* ===== PROJECT GRID (controls columns) ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
   gap: 25px;
-  margin-bottom: 50px;
-  align-items: center;
+}
+
+
+/* ===== PROJECT CARD ===== */
+.project {
   background: white;
   padding: 20px;
   border-radius: 12px;
+
+  /* shadow for "card" look */
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
+  /* smooth hover effect */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* hover lift effect */
 .project:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-/* ===== Project Text ===== */
-.project-text {
-  flex: 2;
+
+/* ===== PROJECT TEXT ===== */
+.project h3 {
+  margin-top: 0;
 }
 
-.project-text h3 {
-  margin: 0 0 5px 0;
-}
-
-.project-text p {
-  margin: 0 0 10px 0;
+.project p {
+  margin: 5px 0 10px 0;
   color: #555;
   font-size: 0.9rem;
 }
 
-.project-text ul {
+.project ul {
   padding-left: 18px;
   margin: 0;
 }
 
-.project-text li {
+.project li {
   margin-bottom: 6px;
 }
 
-/* ===== Project Image Placeholder ===== */
+
+/* ===== IMAGE PLACEHOLDER ===== */
 .project-image {
-  flex: 1;
-  height: 160px;
+  margin-top: 10px;
+  height: 140px;
   background: #e5e7eb;
   border-radius: 8px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: #888;
   font-size: 14px;
 }
 
-/* ===== Links ===== */
+
+/* ===== LINKS ===== */
 a {
   color: #2563eb;
   text-decoration: none;
@@ -105,20 +116,13 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ===== Contact Section ===== */
-section:last-of-type p {
-  font-size: 1rem;
-}
 
-/* ===== Responsive (Mobile) ===== */
+/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 700px) {
-  .project {
-    flex-direction: column;
-    text-align: left;
+
+  /* switch to 1 column on small screens */
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 
-  .project-image {
-    width: 100%;
-    height: 180px;
-  }
 }
