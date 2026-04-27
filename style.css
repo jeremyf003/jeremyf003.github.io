@@ -8,24 +8,39 @@ body {
 }
 
 
-/* ===== HEADER / HERO ===== */
-header {
+/* ===== HERO SECTION ===== */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   background: #0f172a;
   color: white;
-  text-align: center;
-  padding: 80px 20px;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
+.hero-center h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
 }
 
-header p {
-  margin-top: 10px;
-  color: #cbd5e1;
+.hero-center p {
+  font-size: 1.2rem;
+  color: #94a3b8;
 }
 
+/* ===== SCROLL ARROW ===== */
+.scroll-down {
+  margin-top: 40px;
+  font-size: 2rem;
+  cursor: pointer;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
 
 /* ===== SECTION LAYOUT ===== */
 section {
