@@ -1,4 +1,21 @@
-/* INTRO SCREEN */
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0a0a0a;
+  color: white;
+}
+
+/* ===== INTRO SCREEN ===== */
 #intro {
   position: fixed;
   top: 0;
@@ -17,42 +34,29 @@
   color: white;
 }
 
-/* Fade out effect */
+/* Fade out intro */
 .fade-out {
   opacity: 0;
   transition: opacity 1s ease;
 }
 
-body {
-  background: #0a0a0a;
-  color: white;
+/* ===== MAIN CONTENT FADE IN ===== */
+#main-content {
+  opacity: 0;
+  transition: opacity 1s ease;
 }
 
-/* ===== RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-  font-family: Arial, sans-serif;
-}
-
-/* ===== FULL SCREEN SECTIONS ===== */
+/* ===== SECTIONS ===== */
 section {
-  height: 100vh;
-  padding: 40px;
+  min-height: 100vh;
+  padding: 60px 40px;
 }
 
 /* ===== HERO ===== */
 .hero {
-  height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .hero-center {
@@ -72,20 +76,25 @@ section {
 
 .profile-pic {
   width: 220px;
-  height: 220px;        /* force square */
-  object-fit: cover;    /* prevents stretching */
-  border-radius: 20px;  /* rounded square (looks better than sharp corners) */
+  height: 220px;
+  object-fit: cover;
+  border-radius: 20px;
 
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
-/* RIGHT TEXT BOX */
+/* RIGHT CARD */
 .hero-right {
   flex: 2;
-  background: #111;
-  padding: 30px;
+  background: rgba(20, 20, 20, 0.9);
+  padding: 35px;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+  border: 1px solid rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
 .hero-right h1 {
@@ -94,10 +103,10 @@ section {
 
 .about {
   line-height: 1.6;
-  color: #ccc;
+  color: #bbb;
 }
 
-/* Scroll arrow */
+/* ===== SCROLL INDICATOR ===== */
 .scroll-down {
   margin-top: 30px;
   cursor: pointer;
@@ -106,9 +115,14 @@ section {
   gap: 10px;
   color: #aaa;
   font-size: 14px;
+  transition: 0.3s;
 }
 
-/* animated arrow */
+.scroll-down:hover {
+  color: white;
+}
+
+/* arrow */
 .arrow {
   width: 20px;
   height: 20px;
@@ -126,28 +140,38 @@ section {
 
 /* ===== PROJECTS ===== */
 #projects {
-  background: #f8fafc;
-  flex-direction: column;
+  background: #0a0a0a;
   text-align: center;
 }
 
 .projects-grid {
   display: flex;
+  justify-content: center;
   gap: 30px;
-  margin-top: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
 }
 
 .project {
-  background: white;
+  background: #111;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   width: 300px;
   text-align: left;
+
+  border: 1px solid rgba(255,255,255,0.05);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
 .tags span {
   display: inline-block;
-  background: #e2e8f0;
+  background: #1f2937;
   padding: 5px 10px;
   margin: 5px 5px 10px 0;
   border-radius: 5px;
@@ -162,9 +186,7 @@ section {
 
 /* ===== CONTACT ===== */
 #contact {
-  background: #0f172a;
-  color: white;
-  flex-direction: column;
+  background: #0a0a0a;
   text-align: center;
 }
 
@@ -173,18 +195,19 @@ section {
   margin: 10px;
   color: white;
   text-decoration: none;
-  border: 1px solid white;
+  border: 1px solid rgba(255,255,255,0.3);
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 6px;
+
+  transition: 0.3s;
 }
 
 .contact a:hover {
   background: white;
-  color: #0f172a;
+  color: black;
 }
 
-/* TYPE ANIMATION*/
-
+/* ===== TYPING CURSOR ===== */
 #typing-name::after {
   content: "|";
   margin-left: 5px;
@@ -192,7 +215,18 @@ section {
 }
 
 @keyframes blink {
-  0% { opacity: 1; }
+  0%, 100% { opacity: 1; }
   50% { opacity: 0; }
-  100% { opacity: 1; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero-center {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-right {
+    text-align: center;
+  }
 }
