@@ -16,3 +16,28 @@ function typeEffect() {
 }
 
 window.onload = typeEffect;
+
+const introText = "Welcome to my portfolio";
+let i = 0;
+
+function typeIntro() {
+  if (i < introText.length) {
+    document.getElementById("intro-text").innerHTML += introText.charAt(i);
+    i++;
+    setTimeout(typeIntro, 60);
+  } else {
+    // wait, then fade out
+    setTimeout(() => {
+      const intro = document.getElementById("intro");
+      intro.classList.add("fade-out");
+
+      // after fade, remove intro and show site
+      setTimeout(() => {
+        intro.style.display = "none";
+        document.getElementById("main-content").style.display = "block";
+      }, 1000);
+    }, 800);
+  }
+}
+
+window.onload = typeIntro;
