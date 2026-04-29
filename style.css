@@ -47,8 +47,11 @@ section {
 
 .profile-pic {
   width: 220px;
-  border-radius: 50%;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  height: 220px;        /* force square */
+  object-fit: cover;    /* prevents stretching */
+  border-radius: 20px;  /* rounded square (looks better than sharp corners) */
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 /* RIGHT TEXT BOX */
