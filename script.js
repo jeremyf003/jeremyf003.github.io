@@ -30,6 +30,10 @@ function typeIntro() {
 
         const main = document.getElementById("main-content");
         main.style.display = "block";
+        
+        setTimeout(() => {
+        main.style.opacity = "1";
+        }, 50);
 
         // start typing name AFTER intro
         typeName();
