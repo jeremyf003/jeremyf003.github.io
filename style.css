@@ -22,26 +22,49 @@ section {
 
 /* ===== HERO ===== */
 .hero {
-  background: #0f172a;
-  color: white;
-  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-center {
-  max-width: 600px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  max-width: 1000px;
+  width: 90%;
+}
+
+/* LEFT IMAGE */
+.hero-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .profile-pic {
-  width: 140px;
-  height: 140px;
+  width: 220px;
   border-radius: 50%;
-  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* RIGHT TEXT BOX */
+.hero-right {
+  flex: 2;
+  background: #111;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.hero-right h1 {
+  margin-bottom: 15px;
 }
 
 .about {
-  margin-top: 15px;
-  line-height: 1.5;
-  opacity: 0.9;
+  line-height: 1.6;
+  color: #ccc;
 }
 
 /* Scroll arrow */
