@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif !important;
+  font-family: 'JetBrains Mono', monospace;
   background: #0a0a0a;
   color: white;
 }
