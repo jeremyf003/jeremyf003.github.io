@@ -194,6 +194,24 @@ section {
   letter-spacing: 0.5px;
 }
 
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.project-tags span {
+  font-family: 'JetBrains Mono', monospace;  /* 🔥 engineering feel */
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #ccc;
+}
+
 .project-desc {
   font-size: 0.95rem;
   line-height: 1.7;
