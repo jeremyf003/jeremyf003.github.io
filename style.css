@@ -212,6 +212,30 @@ section {
   color: #ccc;
 }
 
+.project-links {
+  margin-top: 20px;
+}
+
+.project-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #ccc;
+
+  display: inline-block;
+  transition: 0.2s ease;
+}
+
+.project-links a:hover {
+  background: white;
+  color: black;
+}
+
 .project-desc {
   font-size: 0.95rem;
   line-height: 1.7;
