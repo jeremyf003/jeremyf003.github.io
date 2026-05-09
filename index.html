@@ -617,66 +617,80 @@
   </section>
 
   <!-- Technical Notes Section -->
+
+  <!-- Technical Notes -->
 <section id="technical-notes">
-  <h2 class="section-title">// mathematical analysis</h2>
+  <h2 class="section-title">// technical notes</h2>
 
-  <div class="project-card">
-    <div class="project-row">
+  <!-- Book -->
+  <div class="notes-book">
 
-      <div class="project-text">
-        <h3 class="project-title">
-          PID Control System Stability Analysis
-        </h3>
+    <button class="notes-header" onclick="toggleSection('calc-notes')">
+      📘 Stewart Calculus
+      <span>+</span>
+    </button>
 
-        <p class="project-meta">
-          Control Systems | Laplace Analysis | Transfer Functions
-        </p>
+    <div class="notes-content" id="calc-notes">
 
-        <div class="project-tags">
-          <span>Control Theory</span>
-          <span>Laplace</span>
-          <span>PID</span>
-          <span>MATLAB</span>
+      <!-- Chapter -->
+      <button class="chapter-header" onclick="toggleSection('calc-1-1')">
+        1.1 Functions and Models
+      </button>
+
+      <div class="chapter-content" id="calc-1-1">
+
+        <div class="note-problem">
+          <h3>Problem 12</h3>
+
+          <p>
+            Evaluate the limit:
+          </p>
+
+          <div class="latex-block">
+            \[
+            \lim_{x \to 2} \frac{x^2 - 4}{x - 2}
+            \]
+          </div>
+
+          <p>
+            Factor the numerator:
+          </p>
+
+          <div class="latex-block">
+            \[
+            x^2 - 4 = (x-2)(x+2)
+            \]
+          </div>
+
+          <p>
+            Simplifying:
+          </p>
+
+          <div class="latex-block">
+            \[
+            \frac{(x-2)(x+2)}{x-2} = x+2
+            \]
+          </div>
+
+          <p>
+            Therefore:
+          </p>
+
+          <div class="latex-block">
+            \[
+            \lim_{x \to 2} (x+2) = 4
+            \]
+          </div>
+
         </div>
 
-        <p class="project-desc">
-          Derived the closed-loop transfer function for a second-order
-          control system and analyzed transient response behavior
-          under proportional-integral-derivative compensation.
-        </p>
-
-        <div class="latex-block">
-          \[
-          G(s) = \frac{K_p + K_i/s + K_d s}{s^2 + 2\zeta\omega_n s + \omega_n^2}
-          \]
-        </div>
-
-        <p class="project-desc">
-          Stability conditions were evaluated using characteristic
-          polynomial roots and damping ratio analysis.
-        </p>
-
-        <div class="latex-block">
-          \[
-          \zeta = \frac{-\ln(M_p)}
-          {\sqrt{\pi^2 + \ln^2(M_p)}}
-          \]
-        </div>
-
-        <div class="project-links">
-          <a href="pdfs/pid-analysis.pdf" target="_blank">
-            📄 View Full Analysis →
-          </a>
-        </div>
-      </div>
-
-      <div class="project-image-container">
-        <img src="pid.jpg" alt="PID Analysis">
       </div>
 
     </div>
+
   </div>
 </section>
+  
   <!-- Contact Section -->
   <section id="contact">
     <div class="contact-card">
