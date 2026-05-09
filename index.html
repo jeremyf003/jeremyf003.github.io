@@ -1,214 +1,897 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jeremy Fernandez | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Jeremy Fernandez | Electrical Engineering Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ===== GLOBAL RESET & ADVANCED ENGINEERING THEME ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #050505;
+      background-image: 
+        radial-gradient(circle at 25% 40%, rgba(0, 255, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 75% 80%, rgba(100, 150, 255, 0.02) 0%, transparent 60%);
+      color: #eef5ff;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0c10;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a6f8f;
+      border-radius: 10px;
+    }
+
+    /* INTRO SCREEN */
+    #intro {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: #010101;
+      background: radial-gradient(ellipse at center, #0a1420 0%, #000000 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
+
+    .intro-container {
+      text-align: center;
+      border-right: 2px solid #0ff;
+      padding-right: 20px;
+    }
+
+    #intro-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.3rem;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #ffffff, #3cc7ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .glow-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: #0ff;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #0ff;
+      animation: pulseDot 1.3s infinite;
+      margin-left: 12px;
+    }
+
+    @keyframes pulseDot {
+      0% { opacity: 0.3; transform: scale(0.8);}
+      100% { opacity: 1; transform: scale(1.2);}
+    }
+
+    .fade-out {
+      opacity: 0;
+      transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+      pointer-events: none;
+    }
+
+    #main-content {
+      opacity: 0;
+      transition: opacity 1.2s ease-out;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 6% 60px;
+    }
+
+    .hero-center {
+      display: flex;
+      gap: 70px;
+      max-width: 1300px;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-left {
+      flex: 1;
+      min-width: 240px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-pic {
+      width: 260px;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 32px;
+      border: 2px solid rgba(0, 255, 255, 0.4);
+      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.8);
+      transition: transform 0.4s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.02);
+      border-color: #0ff;
+    }
+
+    .hero-right {
+      flex: 2;
+      background: rgba(12, 20, 28, 0.75);
+      backdrop-filter: blur(12px);
+      border-radius: 32px;
+      padding: 40px 42px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    #typing-name {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(120deg, #ffffff, #7bc5ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 18px;
+    }
+
+    .about {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: #cdd9ff;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .eng-badge {
+      background: rgba(0, 200, 255, 0.12);
+      border: 1px solid rgba(0, 200, 255, 0.35);
+      border-radius: 40px;
+      padding: 5px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #9eeaff;
+    }
+
+    .scroll-down {
+      margin-top: 32px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0,0,0,0.4);
+      padding: 8px 22px;
+      border-radius: 60px;
+      border: 1px solid rgba(0,255,255,0.3);
+      transition: 0.3s;
+    }
+
+    .arrow {
+      width: 18px;
+      height: 18px;
+      border-left: 2px solid #0ff;
+      border-bottom: 2px solid #0ff;
+      transform: rotate(-45deg);
+      animation: bounceArrow 1.6s infinite;
+    }
+
+    @keyframes bounceArrow {
+      0% { transform: rotate(-45deg) translate(0,0); opacity: 0.6;}
+      50% { transform: rotate(-45deg) translate(4px, 4px); opacity: 1;}
+      100% { transform: rotate(-45deg) translate(0,0); opacity: 0.6;}
+    }
+
+    /* PROJECTS SECTION */
+    #projects {
+      padding: 40px 7% 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 50px;
+      border-left: 5px solid #0ff;
+      padding-left: 25px;
+      background: linear-gradient(135deg, #fff, #6bc2ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .project-card {
+      background: rgba(8, 14, 20, 0.7);
+      backdrop-filter: blur(6px);
+      border-radius: 32px;
+      padding: 32px;
+      margin-bottom: 55px;
+      border: 1px solid rgba(0, 180, 250, 0.2);
+      transition: all 0.35s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 210, 255, 0.6);
+    }
+
+    .project-row {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .project-text {
+      flex: 1.6;
+    }
+
+    .project-title {
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .project-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #8bb9fe;
+      margin-bottom: 20px;
+      border-left: 2px solid #0ff;
+      padding-left: 12px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .project-tags span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      background: #0a1018;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid #2c5a7a;
+      color: #b3e4ff;
+    }
+
+    .project-desc {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #d3e5fc;
+      margin-bottom: 24px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .project-links a, .learn-more-btn {
+      font-family: 'JetBrains Mono', monospace;
+      text-decoration: none;
+      background: transparent;
+      border: 1.5px solid #2f8fbf;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #b6e6ff;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .project-links a:hover, .learn-more-btn:hover {
+      background: #0ff;
+      color: #010101;
+      border-color: #0ff;
+      box-shadow: 0 0 10px rgba(0,255,255,0.4);
+    }
+
+    .project-image-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .project-image-container img {
+      width: 100%;
+      max-width: 380px;
+      border-radius: 24px;
+      border: 1px solid rgba(0,162,255,0.4);
+    }
+
+    /* ===== TREE DISTRIBUTION OVERLAY ===== */
+    .tree-overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 100vh;
+      background: rgba(2, 10, 18, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 10001;
+      overflow-x: hidden;
+      transition: width 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      border-left: 2px solid #0ff;
+      box-shadow: -10px 0 40px rgba(0,0,0,0.8);
+    }
+
+    .tree-overlay.open {
+      width: 520px;
+    }
+
+    .tree-content {
+      padding: 40px 28px;
+      opacity: 0;
+      transition: opacity 0.3s ease 0.2s;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .tree-overlay.open .tree-content {
+      opacity: 1;
+    }
+
+    .tree-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 35px;
+      border-bottom: 1px solid rgba(0,255,255,0.3);
+      padding-bottom: 15px;
+    }
+
+    .tree-header h3 {
+      font-size: 1.6rem;
+      background: linear-gradient(135deg, #fff, #3cc7ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .close-tree {
+      font-size: 28px;
+      cursor: pointer;
+      color: #8bb9fe;
+      transition: 0.2s;
+      background: none;
+      border: none;
+      font-family: monospace;
+    }
+
+    .close-tree:hover {
+      color: #ff4d4d;
+      transform: scale(1.1);
+    }
+
+    /* Tree distribution visualization */
+    .tree-viz {
+      margin-top: 20px;
+    }
+
+    .tree-node {
+      margin-left: 20px;
+      padding-left: 20px;
+      border-left: 2px dashed #2f8fbf;
+      margin-bottom: 18px;
+    }
+
+    .tree-root {
+      background: rgba(0, 200, 255, 0.15);
+      border-radius: 16px;
+      padding: 14px 18px;
+      margin-bottom: 25px;
+      border: 1px solid #0ff;
+    }
+
+    .tree-root-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: #0ff;
+      font-size: 1.2rem;
+    }
+
+    .tree-child {
+      margin: 15px 0 12px 20px;
+      position: relative;
+    }
+
+    .tree-child-item {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      background: rgba(20,40,60,0.4);
+      border-radius: 12px;
+      transition: 0.2s;
+    }
+
+    .tree-child-item:hover {
+      background: rgba(0,160,255,0.2);
+      transform: translateX(5px);
+    }
+
+    .tech-icon {
+      font-size: 1.1rem;
+      min-width: 28px;
+    }
+
+    .tech-detail {
+      flex: 1;
+    }
+
+    .tech-name {
+      font-weight: 600;
+      color: #c4edff;
+    }
+
+    .tech-desc {
+      font-size: 0.7rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #88aacc;
+    }
+
+    .distribution-bar {
+      margin: 16px 0 12px 25px;
+      background: #0a121c;
+      border-radius: 12px;
+      padding: 10px 15px;
+    }
+
+    .skill-meter {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 8px 0;
+    }
+
+    .meter-label {
+      width: 100px;
+      font-size: 0.75rem;
+      font-family: monospace;
+    }
+
+    .meter-bar-bg {
+      flex: 1;
+      height: 6px;
+      background: #1e2a3a;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .meter-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #0ff, #2f8fbf);
+      width: 0%;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 750px) {
+      .tree-overlay.open {
+        width: 100%;
+      }
+      .tree-header h3 {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* contact */
+    #contact {
+      display: flex;
+      justify-content: center;
+      padding: 30px 20px 90px;
+    }
+
+    .contact-card {
+      background: rgba(10, 18, 28, 0.8);
+      backdrop-filter: blur(12px);
+      border-radius: 48px;
+      padding: 48px 36px;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      border: 1px solid rgba(0, 210, 255, 0.3);
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 10px 28px;
+      border-radius: 60px;
+      background: rgba(0, 30, 40, 0.7);
+      border: 1px solid #2f8fbf;
+      color: #c4edff;
+      transition: 0.2s;
+    }
+
+    .contact-links a:hover {
+      background: #0ff;
+      color: #000;
+    }
+
+    .footer-note {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.75rem;
+      color: #5b7993;
+    }
+
+    @media (max-width: 860px) {
+      #typing-name { font-size: 2rem; }
+      .project-row { flex-direction: column; }
+      .section-title { font-size: 1.9rem; }
+    }
+  </style>
 </head>
-  
 <body>
 
 <div id="intro">
-<h1 id="intro-text"></h1>
+  <div class="intro-container">
+    <h1 id="intro-text"></h1>
+    <div class="glow-dot"></div>
+  </div>
 </div>
 
-<div id="main-content">
-  <!-- ===== HERO ===== -->
-<section class="hero">
-
-  <div class="hero-center">
-
-    <!-- LEFT: IMAGE -->
-    <div class="hero-left">
-      <img src="profile.jpg" alt="Profile" class="profile-pic">
-    </div>
-
-    <!-- RIGHT: TEXT BOX -->
-    <div class="hero-right">
-      <h1 id="typing-name"></h1>
-
-      <p class="about">
-        I am a third-year Electrical Engineering student at the University of British Columbia (UBC) with a strong interest in circuits, mathematics, physics, and control systems. 
-        I bring a solid foundation in programming and circuit design, supported by experience with MATLAB, AutoCAD, and SOLIDWORKS. 
-        I have developed hands-on experience working with microcontrollers, FPGAs, breadboarding, oscilloscopes, and semiconductor devices. 
-        I am particularly interested in bridging theory and practical implementation, and I am seeking opportunities in both research and industry where I can contribute to meaningful engineering projects.
-      </p>
-
-      <div class="scroll-down" onclick="scrollToProjects()">
-        <div class="arrow"></div>
-        <span>View Projects</span>
+<div id="main-content" style="display: none;">
+  <section class="hero">
+    <div class="hero-center">
+      <div class="hero-left">
+        <img src="https://placehold.co/420x420/0f1722/a4d0ff?text=JEREMY+F.+ELEC+ENG" alt="Jeremy Fernandez" class="profile-pic" id="profileImage">
       </div>
-    </div>
-
-  </div>
-
-</section>
-
-  <!-- PROJECTS -->
-
- <section id="projects">
-  <h2>Technical Projects</h2>
-
-  <!-- E-Ball -->
-  <div class="project-card">
-    <div class="project-row">
-      <div class="project-text">
-        <h3 class="project-title">E-Ball Model</h3>
-        <p class="project-meta">
-          University of British Columbia | Dec 2025 – Jan 2026
-        </p>
-        
-        <div class="project-tags">
-        <span>ESP32</span>
-        <span>C++</span>
-        <span>BLDC</span>
-        <span>PWM</span>
-        <span>Bluetooth</span>
+      <div class="hero-right">
+        <h1 id="typing-name"></h1>
+        <div class="badge-row">
+          <span class="eng-badge">⚡ Embedded Systems</span>
+          <span class="eng-badge">🔧 Control Theory</span>
+          <span class="eng-badge">📡 IoT & RF</span>
+          <span class="eng-badge">💡 FPGA / uC</span>
         </div>
-        
-        <p class="project-desc">
-          Designed and programmed a Bluetooth-controlled robotic vehicle using three-phase BLDC motors. 
-          Developed in C++ on an ESP32 using Arduino IDE, integrating dual BLDC motors with ESC drivers. 
-          Implemented PWM-based speed control and Bluetooth input via a DualShock 4 controller.
+        <p class="about">
+          I am a third-year Electrical Engineering student at UBC with a deep passion for circuits, mathematics, physics, and control systems. 
+          My expertise spans low-level firmware, motor control, and sensor integration. I bridge theoretical rigor with hands-on prototyping — from BLDC drivers to precision temperature controllers. 
         </p>
-      </div>
-      <div class="project-image-container">
-        <img src="eball.jpg" alt="E-Ball Project">
+        <div class="scroll-down" onclick="scrollToProjects()">
+          <div class="arrow"></div>
+          <span>▼ EXPLORE PROJECTS</span>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Coin Robot -->
-  <div class="project-card">
-    <div class="project-row">
-      <div class="project-text">
-        <h3 class="project-title">Coin Picking Robot</h3>
-        <p class="project-meta">
-          University of British Columbia | Apr 2025 – May 2025
-        </p>
-        
-        <div class="project-tags">
-        <span>C</span>
-        <span>PIC18</span>
-        <span>EFM8</span>
-        <span>RF</span>
-        <span>H-Bridge</span>
-      </div>
-        
-        <p class="project-desc">
-          Designed and programmed a remote-controlled robot capable of detecting and picking Canadian coins. 
-          Programmed in C on EFM8LB1 and PIC18 microcontrollers using CrossIDE. 
-          Designed an H-bridge motor driver and implemented RF communication between subsystems, 
-          working collaboratively in a team of five.
-        </p>
-        
-          <div class="project-links">
-        <a href="https://github.com/JeremyF003/Picking-coin-robot" target="_blank" rel="noopener noreferrer">
-          View Code
-        </a>
-      </div>
-        
-      </div>
-      <div class="project-image-container">
-        <img src="coin.jpg" alt="Coin Robot">
-      </div>
-    </div>
-  </div>
+  <section id="projects">
+    <h2 class="section-title">// technical infrastructure</h2>
 
-  <!-- Reflow Oven -->
-  <div class="project-card">
-    <div class="project-row">
-      <div class="project-text">
-        <h3 class="project-title">Reflow Oven Controller</h3>
-        <p class="project-meta">
-          University of British Columbia | Mar 2025 – May 2025
-        </p>
-
-         <div class="project-tags">
-        <span>A51</span>
-        <span>Embedded</span>
-        <span>Temperature Control</span>
+    <!-- Project 1: E-Ball -->
+    <div class="project-card" data-project="eball">
+      <div class="project-row">
+        <div class="project-text">
+          <h3 class="project-title">E-Ball Model · Vector Control</h3>
+          <p class="project-meta">UBC | Dec 2025 – Jan 2026 | Robotics & BLDC</p>
+          <div class="project-tags"><span>ESP32</span><span>C++</span><span>BLDC</span><span>PWM</span><span>Bluetooth</span></div>
+          <p class="project-desc">High-torque Bluetooth-controlled robotic vehicle driven by three-phase BLDC motors. Custom C++ firmware with 50kHz PWM and DualShock 4 integration.</p>
+          <div class="button-group">
+            <div class="project-links"><a href="#">⚙️ Repo →</a></div>
+            <button class="learn-more-btn" data-project="eball">📘 Learn More → Tree View</button>
           </div>
-           
-        <p class="project-desc">
-          Designed and programmed a temperature-controlled reflow soldering oven. 
-          Developed in A51 on the N76E003 microcontroller using CrossIDE, and worked in a team of six 
-          to test, validate, and refine system performance.
-        </p>
-
-         <div class="project-links">
-        <a href="https://github.com/JeremyF003/Reflow-oven" target="_blank" rel="noopener noreferrer">
-          View Code
-        </a>
-      </div>
-        
-      </div>
-      <div class="project-image-container">
-        <img src="reflow.jpg" alt="Reflow Oven">
-      </div>
-    </div>
-  </div>
-
-  <!-- Line Robot -->
-  <div class="project-card">
-    <div class="project-row">
-      <div class="project-text">
-        <h3 class="project-title">Line Following Robot</h3>
-        <p class="project-meta">
-          Kwantlen Polytechnic University | Apr 2024 – May 2024
-        </p>
-        
-         <div class="project-tags">
-        <span>C</span>
-        <span>PIC</span>  
-        <span>Sensors</span>
-        <span>Control</span>  
-       </div>
-        
-        <p class="project-desc">
-          Programmed an autonomous robot to detect and follow dark lines using photosensors. 
-          Developed in C on a PIC18F46K42 microcontroller using MPLAB, and collaborated in a team of three 
-          to test and refine system performance.
-        </p>
-
-        <div class="project-links">
-        <a href="https://github.com/JeremyF003/WheelsonRobot" target="_blank" rel="noopener noreferrer">
-          View Code
-        </a>
         </div>
-        
-      </div>
-      <div class="project-image-container">
-        <img src="line.jpg" alt="Line Following Robot">
+        <div class="project-image-container"><img src="https://placehold.co/600x400/0a1a2a/71d5ff?text=BLDC+Vector+Control" alt="E-Ball"></div>
       </div>
     </div>
-  </div>
 
-</section>
-  
-  <!-- ===== CONTACT ===== -->
+    <!-- Project 2: Coin Robot -->
+    <div class="project-card" data-project="coinrobot">
+      <div class="project-row">
+        <div class="project-text">
+          <h3 class="project-title">Coin Picking Robot · RF & H-Bridge</h3>
+          <p class="project-meta">UBC | Apr 2025 – May 2025</p>
+          <div class="project-tags"><span>C</span><span>PIC18</span><span>EFM8</span><span>RF Modules</span><span>H-Bridge</span></div>
+          <p class="project-desc">Remote-controlled robot detecting Canadian coins using inductive sensing. Custom H-bridge driver, 433MHz RF communication, team of five.</p>
+          <div class="button-group">
+            <div class="project-links"><a href="https://github.com/JeremyF003/Picking-coin-robot" target="_blank">📁 Code →</a></div>
+            <button class="learn-more-btn" data-project="coinrobot">📘 Learn More → Tree View</button>
+          </div>
+        </div>
+        <div class="project-image-container"><img src="https://placehold.co/600x400/0a1a2a/71d5ff?text=RF+Coin+Robot+PCB" alt="Coin Robot"></div>
+      </div>
+    </div>
+
+    <!-- Project 3: Reflow Oven -->
+    <div class="project-card" data-project="reflow">
+      <div class="project-row">
+        <div class="project-text">
+          <h3 class="project-title">Reflow Oven Controller · Precision PID</h3>
+          <p class="project-meta">UBC | Mar 2025 – May 2025</p>
+          <div class="project-tags"><span>A51 Assembly</span><span>N76E003</span><span>Thermocouple</span><span>PID</span></div>
+          <p class="project-desc">Reflow soldering controller programmed in A51 assembly, PI temperature control, triac switching, overshoot below 5°C, J-STD-020 profile validation.</p>
+          <div class="button-group">
+            <div class="project-links"><a href="https://github.com/JeremyF003/Reflow-oven" target="_blank">🔥 Code →</a></div>
+            <button class="learn-more-btn" data-project="reflow">📘 Learn More → Tree View</button>
+          </div>
+        </div>
+        <div class="project-image-container"><img src="https://placehold.co/600x400/0a1a2a/71d5ff?text=Reflow+Thermal+Graph" alt="Reflow Oven"></div>
+      </div>
+    </div>
+
+    <!-- Project 4: Line Robot -->
+    <div class="project-card" data-project="linerobot">
+      <div class="project-row">
+        <div class="project-text">
+          <h3 class="project-title">Line Following Robot · Autonomous Control</h3>
+          <p class="project-meta">KPU | Apr 2024 – May 2024</p>
+          <div class="project-tags"><span>C</span><span>PIC18F46K42</span><span>Phototransistors</span><span>PID</span></div>
+          <p class="project-desc">PID-based line follower with 5-channel IR array, optimized speed differential, achieving 0.4m/s tracking with smooth cornering.</p>
+          <div class="button-group">
+            <div class="project-links"><a href="https://github.com/JeremyF003/WheelsonRobot" target="_blank">🤖 Code →</a></div>
+            <button class="learn-more-btn" data-project="linerobot">📘 Learn More → Tree View</button>
+          </div>
+        </div>
+        <div class="project-image-container"><img src="https://placehold.co/600x400/0a1a2a/71d5ff?text=Line+Sensor+Array" alt="Line Robot"></div>
+      </div>
+    </div>
+  </section>
+
   <section id="contact">
-  <div class="contact-card">
-    <h2>Contact</h2>
-
-    <p class="contact-text">
-      Feel free to reach out. I’m always open to discussing projects, opportunities, or collaborations.
-    </p>
-
-    <div class="contact-links">
-  <a href="https://www.linkedin.com/in/jeremy-fernandez-264432248" target="_blank">LinkedIn</a>
-  <a href="https://github.com/JeremyF003" target="_blank">GitHub</a>
-  <a href="mailto:jeremyfa2013@gmail.com">Email</a>
+    <div class="contact-card">
+      <h2>⟨ connect ⟩</h2>
+      <p class="contact-text">Let's collaborate on embedded systems, control research, or hardware acceleration.</p>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/jeremy-fernandez-264432248" target="_blank">🔗 LinkedIn</a>
+        <a href="https://github.com/JeremyF003" target="_blank">🐙 GitHub</a>
+        <a href="mailto:jeremyfa2013@gmail.com">✉️ jeremyfa2013@gmail.com</a>
+      </div>
+    </div>
+  </section>
+  <div class="footer-note">⚡ Electrical Engineering · UBC | Firmware · Control · PCB</div>
 </div>
+
+<!-- TREE DISTRIBUTION OVERLAY -->
+<div id="treeOverlay" class="tree-overlay">
+  <div class="tree-content">
+    <div class="tree-header">
+      <h3 id="treeTitle">📐 System Architecture</h3>
+      <button class="close-tree" id="closeTreeBtn">✕</button>
+    </div>
+    <div id="treeVisualization" class="tree-viz">
+      <!-- dynamic tree content injected -->
+    </div>
   </div>
-</section>
+</div>
 
- </div>
-  <script src="script.js"></script>
+<script>
+  // Intro typing + name
+  const introMsg = ">_ SYSTEM BOOT: JEREMY FERNANDEZ";
+  let introIdx = 0;
+  const introElem = document.getElementById("intro-text");
+  const mainDiv = document.getElementById("main-content");
+  const introContainer = document.getElementById("intro");
 
+  function typeIntroSequence() {
+    if (introIdx < introMsg.length) {
+      introElem.innerHTML += introMsg.charAt(introIdx);
+      introIdx++;
+      setTimeout(typeIntroSequence, 55);
+    } else {
+      setTimeout(() => {
+        introContainer.classList.add("fade-out");
+        setTimeout(() => {
+          introContainer.style.display = "none";
+          mainDiv.style.display = "block";
+          setTimeout(() => { mainDiv.style.opacity = "1"; }, 20);
+          startNameTyping();
+        }, 1000);
+      }, 800);
+    }
+  }
+
+  const nameTarget = "Jeremy Fernandez";
+  let nameIdx = 0;
+  const typingSpan = document.getElementById("typing-name");
+
+  function startNameTyping() {
+    typingSpan.innerHTML = "";
+    function typeNameChar() {
+      if (nameIdx < nameTarget.length) {
+        typingSpan.innerHTML += nameTarget.charAt(nameIdx);
+        nameIdx++;
+        setTimeout(typeNameChar, 70);
+      }
+    }
+    typeNameChar();
+  }
+
+  window.scrollToProjects = function() {
+    document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+  };
+
+  // ----- Tree data definitions (engineering tree distribution)
+  const projectTreeData = {
+    eball: {
+      title: "E-Ball · BLDC Ecosystem",
+      root: "BLDC Motor Control Hierarchy",
+      children: [
+        { name: "ESP32 Firmware", detail: "Arduino IDE, C++ scheduling, BLE stack", weight: 92 },
+        { name: "Three-Phase Inverter", detail: "6-step commutation & PWM generation", weight: 88 },
+        { name: "ESC Calibration", detail: "Throttle mapping & timing", weight: 85 },
+        { name: "DualShock 4 Integration", detail: "Bluetooth HID report parsing", weight: 78 }
+      ],
+      distribution: [
+        { label: "Control Logic", value: 90 },
+        { label: "Power Electronics", value: 85 },
+        { label: "Wireless Comms", value: 82 },
+        { label: "Mechanical Design", value: 70 }
+      ]
+    },
+    coinrobot: {
+      title: "Coin Picking · RF & Motor Control",
+      root: "Distributed Embedded System",
+      children: [
+        { name: "PIC18 Master", detail: "RF receiver & motor H-bridge driver", weight: 89 },
+        { name: "EFM8 Slave", detail: "Inductive coin discrimination", weight: 86 },
+        { name: "433MHz Protocol", detail: "Manchester encoding, CRC check", weight: 79 },
+        { name: "H-Bridge Design", detail: "MOSFET switching & flyback", weight: 88 }
+      ],
+      distribution: [
+        { label: "Embedded C", value: 92 },
+        { label: "RF Communication", value: 80 },
+        { label: "Motor Driving", value: 87 },
+        { label: "Sensor Fusion", value: 84 }
+      ]
+    },
+    reflow: {
+      title: "Reflow Oven · PID Thermal Control",
+      root: "Closed-Loop Temperature System",
+      children: [
+        { name: "N76E003 ASM", detail: "A51 precise timing & ISR", weight: 94 },
+        { name: "Type-K Thermocouple", detail: "Cold-junction compensation", weight: 86 },
+        { name: "Triac Firing", detail: "Zero-crossing detection", weight: 83 },
+        { name: "PID Tuning", detail: "Ziegler-Nichols method", weight: 90 }
+      ],
+      distribution: [
+        { label: "Assembly Optimization", value: 95 },
+        { label: "Analog Sensing", value: 85 },
+        { label: "Control Theory", value: 91 },
+        { label: "Safety Interlocks", value: 78 }
+      ]
+    },
+    linerobot: {
+      title: "Line Follower · PID Autonomy",
+      root: "Sensor-Based Navigation",
+      children: [
+        { name: "5-Channel IR Array", detail: "Calibration & thresholding", weight: 86 },
+        { name: "PID Controller", detail: "Derivative kick prevention", weight: 88 },
+        { name: "PWM Motor Driver", detail: "Differential steering", weight: 82 },
+        { name: "MPLAB Code", detail: "Interrupt-driven state machine", weight: 84 }
+      ],
+      distribution: [
+        { label: "Sensors & Calibration", value: 87 },
+        { label: "Control Algorithms", value: 89 },
+        { label: "Embedded C", value: 86 },
+        { label: "Real-time Response", value: 83 }
+      ]
+    }
+  };
+
+  function renderTree(projectId) {
+    const data = projectTreeData[projectId];
+    if (!data) return;
+    const container = document.getElementById("treeVisualization");
+    container.innerHTML = `
+      <div class="tree-root">
+        <div class="tree-root-name">🌳 ${data.root}</div>
+      </div>
+      <div class="tree-node">
+        ${data.children.map(child => `
+          <div class="tree-child">
+            <div class="tree-child-item">
+              <div class="tech-icon">⚙️</div>
+              <div class="tech-detail">
+                <div class="tech-name">${child.name}</div>
+                <div class="tech-desc">${child.detail} • proficiency ${child.weight}%</div>
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="distribution-bar">
+        <div style="margin: 10px 0 8px 0; font-family: monospace; font-size:0.8rem;">📊 Skill Distribution (%)</div>
+        ${data.distribution.map(d => `
+          <div class="skill-meter">
+            <span class="meter-label">${d.label}</span>
+            <div class="meter-bar-bg"><div class="meter-fill" style="width: ${d.value}%;"></div></div>
+            <span style="font-size:0.7rem;">${d.value}%</span>
+          </div>
+        `).join('')}
+      </div>
+      <div style="margin-top: 25px; font-size:0.7rem; border-top: 1px solid #2f8fbf40; padding-top: 12px; color:#6c8fb0;">✨ tree distribution: firmware depth & system integration</div>
+    `;
+    document.getElementById("treeTitle").innerHTML = `📐 ${data.title}`;
+  }
+
+  // open overlay with slide from right
+  let currentOpenProject = null;
+  const overlay = document.getElementById("treeOverlay");
   
+  function openTreeForProject(projectId) {
+    if (projectTreeData[projectId]) {
+      renderTree(projectId);
+      overlay.classList.add("open");
+      currentOpenProject = projectId;
+    }
+  }
+  
+  function closeTreeOverlay() {
+    overlay.classList.remove("open");
+    setTimeout(() => {
+      if (!overlay.classList.contains("open")) {
+        // optional reset
+      }
+    }, 400);
+  }
+
+  // attach event listeners to all learn more buttons
+  document.querySelectorAll(".learn-more-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const proj = btn.getAttribute("data-project");
+      if (proj) openTreeForProject(proj);
+    });
+  });
+  
+  document.getElementById("closeTreeBtn").addEventListener("click", closeTreeOverlay);
+  // click outside close? optional click outside (background) close: overlay background click - but better style
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeTreeOverlay();
+  });
+  
+  // replace profile image
+  const profile = document.getElementById("profileImage");
+  if(profile) profile.src = "https://placehold.co/420x420/0f1722/a4d0ff?text=JEREMY+F.+E.Eng";
+  
+  // preload images optional
+  window.onload = () => { typeIntroSequence(); };
+</script>
 </body>
 </html>
