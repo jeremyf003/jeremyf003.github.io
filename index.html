@@ -476,6 +476,130 @@
     @keyframes blinkCarets {
       0%,100%{opacity:1} 50%{opacity:0}
     }
+    /* ===== TECHNICAL NOTES SECTION - FIXED & FUNCTIONAL ===== */
+#technical-notes {
+  padding: 30px 7% 70px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.notes-book {
+  background: rgba(6, 12, 18, 0.75);
+  backdrop-filter: blur(8px);
+  border-radius: 32px;
+  border: 1px solid rgba(0, 200, 255, 0.25);
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.notes-header {
+  width: 100%;
+  background: rgba(0, 30, 45, 0.8);
+  border: none;
+  border-bottom: 1px solid rgba(0, 180, 255, 0.4);
+  padding: 20px 28px;
+  font-size: 1.7rem;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  color: #b9edff;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.notes-header:hover {
+  background: rgba(0, 60, 80, 0.9);
+  color: #ffffff;
+}
+
+.notes-header span {
+  font-size: 2rem;
+  font-weight: 300;
+  transition: transform 0.3s ease;
+}
+
+.notes-content {
+  background: rgba(10, 18, 26, 0.5);
+  padding: 0 20px;
+}
+
+.chapter-header {
+  width: 100%;
+  background: rgba(0, 20, 30, 0.7);
+  border: none;
+  border-left: 4px solid #0fa;
+  margin: 16px 0 8px 0;
+  padding: 14px 24px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  color: #bbf0ff;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 16px;
+  transition: 0.2s;
+}
+
+.chapter-header:hover {
+  background: rgba(0, 80, 110, 0.7);
+  border-left-color: #0ff;
+  transform: translateX(4px);
+}
+
+.chapter-header span {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.chapter-content {
+  background: rgba(0, 0, 0, 0.3);
+  margin: 5px 0 18px 0;
+  padding: 20px 28px;
+  border-radius: 24px;
+  border: 1px solid rgba(100, 200, 255, 0.2);
+}
+
+.note-problem {
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed rgba(0, 180, 255, 0.3);
+}
+
+.note-problem h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  color: #55ddff;
+  margin-bottom: 14px;
+}
+
+.note-problem p {
+  color: #cde3ff;
+  margin: 12px 0;
+  line-height: 1.6;
+}
+
+.latex-block {
+  background: #051016;
+  padding: 16px 20px;
+  border-radius: 20px;
+  margin: 16px 0;
+  overflow-x: auto;
+  border-left: 3px solid #0ff;
+}
+
+.latex-block mjx-container {
+  font-size: 1.05rem;
+}
+
+.collapsed-content {
+  display: none;
+}
   </style>
 </head>
 <body>
@@ -618,78 +742,79 @@
 
   <!-- Technical Notes Section -->
 
-  <!-- Technical Notes -->
-<section id="technical-notes">
-  <h2 class="section-title">// technical notes</h2>
-
-  <!-- Book -->
-  <div class="notes-book">
-
-    <button class="notes-header" onclick="toggleSection('calc-notes')">
-      📘 Stewart Calculus
-      <span>+</span>
-    </button>
-
-    <div class="notes-content" id="calc-notes">
-
-      <!-- Chapter -->
-      <button class="chapter-header" onclick="toggleSection('calc-1-1')">
-        1.1 Functions and Models
+    <!-- Technical Notes Section - Fully Functional -->
+  <section id="technical-notes">
+    <h2 class="section-title">// technical notes</h2>
+    <div class="notes-book">
+      <!-- Main Book Header -->
+      <button class="notes-header" onclick="toggleNotesSection('calc-notes-main')">
+        📘 Stewart Calculus: Early Transcendentals
+        <span id="calc-notes-main-symbol">+</span>
       </button>
-
-      <div class="chapter-content" id="calc-1-1">
-
-        <div class="note-problem">
-          <h3>Problem 12</h3>
-
-          <p>
-            Evaluate the limit:
-          </p>
-
-          <div class="latex-block">
-            \[
-            \lim_{x \to 2} \frac{x^2 - 4}{x - 2}
-            \]
+      <div id="calc-notes-main" class="notes-content" style="display: none;">
+        
+        <!-- Chapter 1.1 -->
+        <button class="chapter-header" onclick="toggleChapter('calc-chap-1-1')">
+          §1.1 Functions and Models <span id="calc-chap-1-1-symbol">+</span>
+        </button>
+        <div id="calc-chap-1-1" class="chapter-content" style="display: none;">
+          <div class="note-problem">
+            <h3>Problem 12: Limit Evaluation</h3>
+            <p>Evaluate the limit:</p>
+            <div class="latex-block">\[ \lim_{x \to 2} \frac{x^2 - 4}{x - 2} \]</div>
+            <p>Factor the numerator:</p>
+            <div class="latex-block">\[ x^2 - 4 = (x-2)(x+2) \]</div>
+            <p>Simplifying:</p>
+            <div class="latex-block">\[ \frac{(x-2)(x+2)}{x-2} = x+2 \]</div>
+            <p>Therefore:</p>
+            <div class="latex-block">\[ \lim_{x \to 2} (x+2) = 4 \]</div>
           </div>
-
-          <p>
-            Factor the numerator:
-          </p>
-
-          <div class="latex-block">
-            \[
-            x^2 - 4 = (x-2)(x+2)
-            \]
+          <div class="note-problem">
+            <h3>Problem 24: Continuity</h3>
+            <p>Find values of \(a\) and \(b\) that make \(f\) continuous everywhere:</p>
+            <div class="latex-block">\[ f(x) = \begin{cases} \frac{x^2-4}{x-2} & x<2 \\ ax^2 - bx + 3 & 2 \le x < 3 \\ 2x - a + b & x \ge 3 \end{cases} \]</div>
+            <p>Solution yields \(a=1, b=2\).</p>
           </div>
+        </div>
 
-          <p>
-            Simplifying:
-          </p>
-
-          <div class="latex-block">
-            \[
-            \frac{(x-2)(x+2)}{x-2} = x+2
-            \]
+        <!-- Chapter 1.2 -->
+        <button class="chapter-header" onclick="toggleChapter('calc-chap-1-2')">
+          §1.2 Mathematical Models <span id="calc-chap-1-2-symbol">+</span>
+        </button>
+        <div id="calc-chap-1-2" class="chapter-content" style="display: none;">
+          <div class="note-problem">
+            <h3>Linearization of Circuits</h3>
+            <p>For a diode, \(I = I_s(e^{V/V_T} - 1)\). Linearize around \(V_0\):</p>
+            <div class="latex-block">\[ I \approx I_0 + \frac{I_s}{V_T} e^{V_0/V_T} (V - V_0) \]</div>
           </div>
+        </div>
 
-          <p>
-            Therefore:
-          </p>
-
-          <div class="latex-block">
-            \[
-            \lim_{x \to 2} (x+2) = 4
-            \]
+        <!-- Chapter 2 - Derivatives -->
+        <button class="chapter-header" onclick="toggleChapter('calc-chap-2-3')">
+          §2.3 Differentiation for PID Control <span id="calc-chap-2-3-symbol">+</span>
+        </button>
+        <div id="calc-chap-2-3" class="chapter-content" style="display: none;">
+          <div class="note-problem">
+            <h3>Derivative of Error Signal</h3>
+            <p>PID control: \(u(t) = K_p e(t) + K_i \int e(t)dt + K_d \frac{de}{dt}\)</p>
+            <div class="latex-block">\[ \frac{d}{dt}e(t) = -\dot{y}(t) \]</div>
           </div>
+        </div>
 
+        <!-- Laplace Transforms -->
+        <button class="chapter-header" onclick="toggleChapter('calc-chap-laplace')">
+          Appendix: Laplace Transforms <span id="calc-chap-laplace-symbol">+</span>
+        </button>
+        <div id="calc-chap-laplace" class="chapter-content" style="display: none;">
+          <div class="note-problem">
+            <h3>DC Motor Transfer Function</h3>
+            <div class="latex-block">\[ \frac{\Theta(s)}{V_a(s)} = \frac{K_t}{s[(L_a s + R_a)(J s + b) + K_t K_b]} \]</div>
+          </div>
         </div>
 
       </div>
-
     </div>
-
-  </div>
-</section>
+  </section>
   
   <!-- Contact Section -->
   <section id="contact">
@@ -767,6 +892,37 @@
     }
     typeNameChar();
   }
+
+    // Toggle functions for Technical Notes
+  window.toggleNotesSection = function(sectionId) {
+    const content = document.getElementById(sectionId);
+    const symbolSpan = document.getElementById(sectionId + "-symbol");
+    if (content) {
+      if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+        if (symbolSpan) symbolSpan.innerHTML = "−";
+        if (window.MathJax) MathJax.typesetPromise();
+      } else {
+        content.style.display = "none";
+        if (symbolSpan) symbolSpan.innerHTML = "+";
+      }
+    }
+  };
+
+  window.toggleChapter = function(chapterId) {
+    const chapterDiv = document.getElementById(chapterId);
+    const symbolSpan = document.getElementById(chapterId + "-symbol");
+    if (chapterDiv) {
+      if (chapterDiv.style.display === "none" || chapterDiv.style.display === "") {
+        chapterDiv.style.display = "block";
+        if (symbolSpan) symbolSpan.innerHTML = "−";
+        if (window.MathJax) MathJax.typesetPromise();
+      } else {
+        chapterDiv.style.display = "none";
+        if (symbolSpan) symbolSpan.innerHTML = "+";
+      }
+    }
+  };
 
   // fallback scroll function
   window.scrollToProjects = function() {
