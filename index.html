@@ -584,6 +584,35 @@
   line-height: 1.6;
 }
 
+    .note-problem-header {
+  width: 100%;
+  background: rgba(0, 15, 25, 0.6);
+  border: 1px solid rgba(0, 150, 200, 0.3);
+  margin: 8px 0;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  color: #aae0ff;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px;
+  transition: 0.2s;
+}
+
+.note-problem-header:hover {
+  background: rgba(0, 60, 90, 0.7);
+  border-color: #0ff;
+}
+
+.note-problem-header span {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
 .latex-block {
   background: #051016;
   padding: 16px 20px;
@@ -753,23 +782,139 @@
       </button>
       <div id="calc-notes-main" class="notes-content" style="display: none;">
         
-               <button class="chapter-header" onclick="toggleChapter('calc-chap-2-1')">
-          Chapter 2: Limits and Derivatives <span id="calc-chap-2-1-symbol">+</span>
+           <!-- Chapter 2: Limits and Derivatives -->
+        <button class="chapter-header" onclick="toggleChapter('calc-chap-2')">
+          Chapter 2: Limits and Derivatives <span id="calc-chap-2-symbol">+</span>
         </button>
-        <div id="calc-chap-2-1" class="chapter-content" style="display: none;">
-          <div class="note-problem">
-            <h3>Problem 4</h3>
+        <div id="calc-chap-2" class="chapter-content" style="display: none;">
+          
+          <!-- Problem 1 -->
+          <button class="note-problem-header" onclick="toggleProblem('calc-prob-2-1')">
+            Problem 1 <span id="calc-prob-2-1-symbol">+</span>
+          </button>
+          <div id="calc-prob-2-1" class="note-problem" style="display: none;">
+            <p>Find the limit:</p>
+            <div class="latex-block">\[ \lim_{x \to 0} \frac{\cos x - 1 + 3x}{x} \]</div>
+            <p><strong>Solution:</strong> Using \(\cos x \approx 1 - \frac{x^2}{2}\) for small \(x\):</p>
+            <div class="latex-block">\[ \lim_{x \to 0} \frac{(1 - \frac{x^2}{2}) - 1 + 3x}{x} = \lim_{x \to 0} \frac{-\frac{x^2}{2} + 3x}{x} = \lim_{x \to 0} \left(3 - \frac{x}{2}\right) = 3 \]</div>
+            <p><strong>Answer:</strong> \(\boxed{3}\)</p>
+          </div>
+
+          <!-- Problem 2 -->
+          <button class="note-problem-header" onclick="toggleProblem('calc-prob-2-2')">
+            Problem 2 <span id="calc-prob-2-2-symbol">+</span>
+          </button>
+          <div id="calc-prob-2-2" class="note-problem" style="display: none;">
             <p>Find the limit:</p>
             <div class="latex-block">\[ \lim_{x \to 3} \frac{x^2 - 9}{x^2 + 2x - 3} \]</div>
-            <p><strong>Step 1:</strong> Factor the numerator and denominator.</p>
-            <div class="latex-block">\[ x^2 - 9 = (x-3)(x+3) \]</div>
-            <div class="latex-block">\[ x^2 + 2x - 3 = (x+3)(x-1) \]</div>
-            <p><strong>Step 2:</strong> Simplify the fraction.</p>
+            <p><strong>Step 1:</strong> Factor numerator and denominator.</p>
+            <div class="latex-block">\[ x^2 - 9 = (x-3)(x+3), \quad x^2 + 2x - 3 = (x+3)(x-1) \]</div>
+            <p><strong>Step 2:</strong> Simplify.</p>
             <div class="latex-block">\[ \frac{(x-3)(x+3)}{(x+3)(x-1)} = \frac{x-3}{x-1} \]</div>
-            <p><strong>Step 3:</strong> Evaluate the limit by direct substitution.</p>
-            <div class="latex-block">\[ \lim_{x \to 3} \frac{x-3}{x-1} = \frac{3-3}{3-1} = \frac{0}{2} = 0 \]</div>
+            <p><strong>Step 3:</strong> Substitute \(x = 3\).</p>
+            <div class="latex-block">\[ \lim_{x \to 3} \frac{x-3}{x-1} = \frac{0}{2} = 0 \]</div>
             <p><strong>Answer:</strong> \(\boxed{0}\)</p>
           </div>
+
+          <!-- Problem 3 -->
+          <button class="note-problem-header" onclick="toggleProblem('calc-prob-2-3')">
+            Problem 3 <span id="calc-prob-2-3-symbol">+</span>
+          </button>
+          <div id="calc-prob-2-3" class="note-problem" style="display: none;">
+            <p>Find the limit:</p>
+            <div class="latex-block">\[ \lim_{x \to -3} \frac{x^2 - 9}{x^2 + 2x - 3} \]</div>
+            <p><strong>Step 1:</strong> Factor.</p>
+            <div class="latex-block">\[ \frac{(x-3)(x+3)}{(x+3)(x-1)} = \frac{x-3}{x-1} \]</div>
+            <p><strong>Step 2:</strong> Substitute \(x = -3\).</p>
+            <div class="latex-block">\[ \lim_{x \to -3} \frac{x-3}{x-1} = \frac{-6}{-4} = \frac{3}{2} \]</div>
+            <p><strong>Answer:</strong> \(\boxed{\frac{3}{2}}\)</p>
+          </div>
+
+          <!-- Problem 4 -->
+          <button class="note-problem-header" onclick="toggleProblem('calc-prob-2-4')">
+            Problem 4 <span id="calc-prob-2-4-symbol">+</span>
+          </button>
+          <div id="calc-prob-2-4" class="note-problem" style="display: none;">
+            <p>Find the limit:</p>
+            <div class="latex-block">\[ \lim_{x \to 1} \frac{x^2 - 9}{x^2 + 2x - 3} \]</div>
+            <p>Denominator → 0, numerator → -8, so the limit does not exist (vertical asymptote).</p>
+            <p>\(\lim_{x \to 1^+} = -\infty\), \(\lim_{x \to 1^-} = +\infty\).</p>
+            <p><strong>Answer:</strong> Limit does not exist.</p>
+          </div>
+
+          <!-- Problem 5 -->
+          <button class="note-problem-header" onclick="toggleProblem('calc-prob-2-5')">
+            Problem 5 <span id="calc-prob-2-5-symbol">+</span>
+          </button>
+          <div id="calc-prob-2-5" class="note-problem" style="display: none;">
+            <p>Find the limit:</p>
+            <div class="latex-block">\[ \lim_{h \to 0} \frac{(h-1)^3 + 1}{h} \]</div>
+            <p>Expand \((h-1)^3 = h^3 - 3h^2 + 3h - 1\):</p>
+            <div class="latex-block">\[ \frac{(h^3 - 3h^2 + 3h - 1) + 1}{h} = \frac{h^3 - 3h^2 + 3h}{h} = h^2 - 3h + 3 \]</div>
+            <p><strong>Answer:</strong> \(\boxed{3}\)</p>
+          </div>
+
+          <!-- Problem 6 -->
+          <button class="note-problem-header" onclick="toggleProblem('calc-prob-2-6')">
+            Problem 6 <span id="calc-prob-2-6-symbol">+</span>
+          </button>
+          <div id="calc-prob-2-6" class="note-problem" style="display: none;">
+            <p>Find the limit:</p>
+            <div class="latex-block">\[ \lim_{t \to 2} \frac{t^2 - 4}{t^3 - 8} \]</div>
+            <p>Factor: \(t^2 - 4 = (t-2)(t+2)\), \(t^3 - 8 = (t-2)(t^2 + 2t + 4)\).</p>
+            <div class="latex-block">\[ \frac{(t-2)(t+2)}{(t-2)(t^2+2t+4)} = \frac{t+2}{t^2+2t+4} \]</div>
+            <p>Substitute \(t = 2\):</p>
+            <div class="latex-block">\[ \frac{4}{4+4+4} = \frac{4}{12} = \frac{1}{3} \]</div>
+            <p><strong>Answer:</strong> \(\boxed{\frac{1}{3}}\)</p>
+          </div>
+
+          <!-- Problem 7 -->
+          <button class="note-problem-header" onclick="toggleProblem('calc-prob-2-7')">
+            Problem 7 <span id="calc-prob-2-7-symbol">+</span>
+          </button>
+          <div id="calc-prob-2-7" class="note-problem" style="display: none;">
+            <p>Find the limit:</p>
+            <div class="latex-block">\[ \lim_{r \to 9} \frac{\sqrt{r}}{(r-9)^4} \]</div>
+            <p>As \(r \to 9\), numerator \(\sqrt{r} \to 3\), denominator \((r-9)^4 \to 0^+\).</p>
+            <p><strong>Answer:</strong> \(\boxed{+\infty}\) (limit does not exist)</p>
+          </div>
+
+          <!-- Problem 8 -->
+          <button class="note-problem-header" onclick="toggleProblem('calc-prob-2-8')">
+            Problem 8 <span id="calc-prob-2-8-symbol">+</span>
+          </button>
+          <div id="calc-prob-2-8" class="note-problem" style="display: none;">
+            <p>Find the limit:</p>
+            <div class="latex-block">\[ \lim_{v \to 4^+} \frac{4 - v}{|4 - v|} \]</div>
+            <p>For \(v > 4\), \(4 - v\) is negative, so \(|4 - v| = v - 4\):</p>
+            <div class="latex-block">\[ \frac{4 - v}{v - 4} = -1 \]</div>
+            <p><strong>Answer:</strong> \(\boxed{-1}\)</p>
+          </div>
+
+          <!-- Problem 9 -->
+          <button class="note-problem-header" onclick="toggleProblem('calc-prob-2-9')">
+            Problem 9 <span id="calc-prob-2-9-symbol">+</span>
+          </button>
+          <div id="calc-prob-2-9" class="note-problem" style="display: none;">
+            <p>Find the limit:</p>
+            <div class="latex-block">\[ \lim_{x \to \infty} \frac{\sqrt{x^2 - 9}}{2x - 6} \]</div>
+            <p>Divide numerator and denominator by \(x\):</p>
+            <div class="latex-block">\[ \lim_{x \to \infty} \frac{\sqrt{1 - \frac{9}{x^2}}}{2 - \frac{6}{x}} = \frac{\sqrt{1 - 0}}{2 - 0} = \frac{1}{2} \]</div>
+            <p><strong>Answer:</strong> \(\boxed{\frac{1}{2}}\)</p>
+          </div>
+
+          <!-- Problem 10 -->
+          <button class="note-problem-header" onclick="toggleProblem('calc-prob-2-10')">
+            Problem 10 <span id="calc-prob-2-10-symbol">+</span>
+          </button>
+          <div id="calc-prob-2-10" class="note-problem" style="display: none;">
+            <p>Find the limit:</p>
+            <div class="latex-block">\[ \lim_{x \to -\infty} \frac{\sqrt{x^2 - 9}}{2x - 6} \]</div>
+            <p>For \(x \to -\infty\), \(\sqrt{x^2 - 9} = |x|\sqrt{1 - \frac{9}{x^2}} = -x\sqrt{1 - \frac{9}{x^2}}\) (since \(|x| = -x\) when \(x < 0\)).</p>
+            <div class="latex-block">\[ \lim_{x \to -\infty} \frac{-x\sqrt{1 - \frac{9}{x^2}}}{2x - 6} = \lim_{x \to -\infty} \frac{-\sqrt{1 - \frac{9}{x^2}}}{2 - \frac{6}{x}} = \frac{-1}{2} \]</div>
+            <p><strong>Answer:</strong> \(\boxed{-\frac{1}{2}}\)</p>
+          </div>
+
         </div>
 
                 <!-- Chapter 3: Differentiation Rules -->
@@ -812,17 +957,7 @@
           <!-- Problems will go here -->
         </div>
 
-        <!-- Laplace Transforms -->
-        <button class="chapter-header" onclick="toggleChapter('calc-chap-laplace')">
-          Appendix: Laplace Transforms <span id="calc-chap-laplace-symbol">+</span>
-        </button>
-        <div id="calc-chap-laplace" class="chapter-content" style="display: none;">
-          <div class="note-problem">
-            <h3>DC Motor Transfer Function</h3>
-            <div class="latex-block">\[ \frac{\Theta(s)}{V_a(s)} = \frac{K_t}{s[(L_a s + R_a)(J s + b) + K_t K_b]} \]</div>
-          </div>
-        </div>
-
+  
       </div>
     </div>
   </section>
@@ -934,6 +1069,21 @@
       }
     }
   };
+
+  window.toggleProblem = function(problemId) {
+  const problemDiv = document.getElementById(problemId);
+  const symbolSpan = document.getElementById(problemId + "-symbol");
+  if (problemDiv) {
+    if (problemDiv.style.display === "none" || problemDiv.style.display === "") {
+      problemDiv.style.display = "block";
+      if (symbolSpan) symbolSpan.innerHTML = "−";
+      if (window.MathJax) MathJax.typesetPromise();
+    } else {
+      problemDiv.style.display = "none";
+      if (symbolSpan) symbolSpan.innerHTML = "+";
+    }
+  }
+};
 
   // fallback scroll function
   window.scrollToProjects = function() {
