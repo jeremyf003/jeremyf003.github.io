@@ -537,7 +537,7 @@
           </div>
         </div>
         <div class="project-image-container">
-          <img src="https://placehold.co/600x400/11212e/4bc0ff?text=E-Ball+Prototype" alt="E-Ball Model">
+          <img src="eball.jpg" alt="E-Ball Model">
         </div>
       </div>
     </div>
@@ -561,7 +561,7 @@
           </div>
         </div>
         <div class="project-image-container">
-          <img src="https://placehold.co/600x400/11212e/4bc0ff?text=CoinRobot+PCB+Design" alt="Coin Robot">
+          <img src="coin.jpg" alt="Coin Robot">
         </div>
       </div>
     </div>
@@ -585,7 +585,7 @@
           </div>
         </div>
         <div class="project-image-container">
-          <img src="https://placehold.co/600x400/11212e/4bc0ff?text=Reflow+Oven+Controller" alt="Reflow Oven">
+          <img src="reflow.jpg" alt="Reflow Oven">
         </div>
       </div>
     </div>
@@ -609,7 +609,7 @@
           </div>
         </div>
         <div class="project-image-container">
-          <img src="https://placehold.co/600x400/11212e/4bc0ff?text=Line+Follower+Robot" alt="Line Following Robot">
+          <img src="line.jpg" alt="Line Following Robot">
         </div>
       </div>
     </div>
@@ -708,17 +708,17 @@
   // Also dynamically set profile image to a more professional attractive representation? Using svg?
   const profileImage = document.getElementById("profileImage");
   if(profileImage) {
-    profileImage.src = "https://placehold.co/420x420/0f1722/a4d0ff?text=JEREMY+F.+ELEC+ENG";
+    profileImage.src = "profile.jpg";
     profileImage.alt = "Jeremy Fernandez - Electrical Engineer";
   }
   
   // preload all project images to modern schematic style represent
   const projectImgs = document.querySelectorAll(".project-image-container img");
   const imgSources = [
-    "https://placehold.co/600x400/0a1a2a/71d5ff?text=BLDC+Vector+Control",
-    "https://placehold.co/600x400/0a1a2a/71d5ff?text=RF+Coin+Robot+PCB",
-    "https://placehold.co/600x400/0a1a2a/71d5ff?text=Reflow+Thermal+Graph",
-    "https://placehold.co/600x400/0a1a2a/71d5ff?text=Line+Sensor+Array"
+    "eball.jpg",
+    "coin.jpg",
+    "reflow.jpg",
+    "line.jpg"
   ];
   for (let i = 0; i < projectImgs.length && i < imgSources.length; i++) {
     if(projectImgs[i]) projectImgs[i].src = imgSources[i];
