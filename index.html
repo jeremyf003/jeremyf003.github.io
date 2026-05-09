@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Jeremy Fernandez | Electrical Engineering Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
     /* ===== GLOBAL RESET & ADVANCED ENGINEERING THEME ===== */
     * {
@@ -508,7 +509,7 @@
         </p>
         <div class="scroll-down" onclick="scrollToProjects()">
           <div class="arrow"></div>
-          <span>▼ EXPLORE PROJECTS</span>
+          <span> EXPLORE PROJECTS</span>
         </div>
       </div>
     </div>
@@ -615,6 +616,67 @@
     </div>
   </section>
 
+  <!-- Technical Notes Section -->
+<section id="technical-notes">
+  <h2 class="section-title">// mathematical analysis</h2>
+
+  <div class="project-card">
+    <div class="project-row">
+
+      <div class="project-text">
+        <h3 class="project-title">
+          PID Control System Stability Analysis
+        </h3>
+
+        <p class="project-meta">
+          Control Systems | Laplace Analysis | Transfer Functions
+        </p>
+
+        <div class="project-tags">
+          <span>Control Theory</span>
+          <span>Laplace</span>
+          <span>PID</span>
+          <span>MATLAB</span>
+        </div>
+
+        <p class="project-desc">
+          Derived the closed-loop transfer function for a second-order
+          control system and analyzed transient response behavior
+          under proportional-integral-derivative compensation.
+        </p>
+
+        <div class="latex-block">
+          \[
+          G(s) = \frac{K_p + K_i/s + K_d s}{s^2 + 2\zeta\omega_n s + \omega_n^2}
+          \]
+        </div>
+
+        <p class="project-desc">
+          Stability conditions were evaluated using characteristic
+          polynomial roots and damping ratio analysis.
+        </p>
+
+        <div class="latex-block">
+          \[
+          \zeta = \frac{-\ln(M_p)}
+          {\sqrt{\pi^2 + \ln^2(M_p)}}
+          \]
+        </div>
+
+        <div class="project-links">
+          <a href="pdfs/pid-analysis.pdf" target="_blank">
+            📄 View Full Analysis →
+          </a>
+        </div>
+      </div>
+
+      <div class="project-image-container">
+        <img src="pid.jpg" alt="PID Analysis">
+      </div>
+
+    </div>
+  </div>
+</section>
   <!-- Contact Section -->
   <section id="contact">
     <div class="contact-card">
