@@ -101,7 +101,7 @@
       transition: opacity 1.2s ease-out;
     }
 
-    /* ===== HERO SECTION ===== */
+    /* ===== HERO SECTION - futuristic glassmorphism ===== */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -366,135 +366,7 @@
       transform: scale(1.02);
     }
 
-    /* ===== TECHNICAL NOTES SECTION - COMPLETELY FIXED ===== */
-    #technical-notes {
-      padding: 30px 7% 70px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .notes-book {
-      background: rgba(6, 12, 18, 0.75);
-      backdrop-filter: blur(8px);
-      border-radius: 32px;
-      border: 1px solid rgba(0, 200, 255, 0.25);
-      overflow: hidden;
-      margin-top: 20px;
-    }
-
-    .notes-header {
-      width: 100%;
-      background: rgba(0, 30, 45, 0.8);
-      border: none;
-      border-bottom: 1px solid rgba(0, 180, 255, 0.4);
-      padding: 20px 28px;
-      font-size: 1.7rem;
-      font-weight: 600;
-      font-family: 'JetBrains Mono', monospace;
-      color: #b9edff;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: all 0.2s;
-      letter-spacing: -0.3px;
-    }
-
-    .notes-header:hover {
-      background: rgba(0, 60, 80, 0.9);
-      color: #ffffff;
-    }
-
-    .notes-header span {
-      font-size: 2rem;
-      font-weight: 300;
-      transition: transform 0.3s ease;
-    }
-
-    .notes-content {
-      background: rgba(10, 18, 26, 0.5);
-      padding: 0 20px;
-    }
-
-    .chapter-header {
-      width: 100%;
-      background: rgba(0, 20, 30, 0.7);
-      border: none;
-      border-left: 4px solid #0fa;
-      margin: 16px 0 8px 0;
-      padding: 14px 24px;
-      font-size: 1.25rem;
-      font-weight: 600;
-      font-family: 'JetBrains Mono', monospace;
-      color: #bbf0ff;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 16px;
-      transition: 0.2s;
-    }
-
-    .chapter-header:hover {
-      background: rgba(0, 80, 110, 0.7);
-      border-left-color: #0ff;
-      transform: translateX(4px);
-    }
-
-    .chapter-header span {
-      font-size: 1.5rem;
-      font-weight: 400;
-    }
-
-    .chapter-content {
-      background: rgba(0, 0, 0, 0.3);
-      margin: 5px 0 18px 0;
-      padding: 20px 28px;
-      border-radius: 24px;
-      border: 1px solid rgba(100, 200, 255, 0.2);
-    }
-
-    .note-problem {
-      margin-bottom: 28px;
-      padding-bottom: 16px;
-      border-bottom: 1px dashed rgba(0, 180, 255, 0.3);
-    }
-
-    .note-problem h3 {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1.2rem;
-      color: #55ddff;
-      margin-bottom: 14px;
-      letter-spacing: -0.2px;
-    }
-
-    .note-problem p {
-      color: #cde3ff;
-      margin: 12px 0;
-      line-height: 1.6;
-    }
-
-    .latex-block {
-      background: #051016;
-      padding: 16px 20px;
-      border-radius: 20px;
-      margin: 16px 0;
-      overflow-x: auto;
-      border-left: 3px solid #0ff;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .latex-block mjx-container {
-      font-size: 1.05rem;
-    }
-
-    .collapsed-content {
-      display: none;
-    }
-
-    /* Contact & Footer */
+    /* ===== CONTACT CARD ===== */
     #contact {
       display: flex;
       justify-content: center;
@@ -552,6 +424,7 @@
       box-shadow: 0 0 14px #0ff;
     }
 
+    /* ===== FOOTER ===== */
     .footer-note {
       text-align: center;
       padding: 24px;
@@ -571,18 +444,14 @@
       .project-row {
         flex-direction: column;
       }
+      .project-image-container img {
+        max-width: 100%;
+      }
       .section-title {
         font-size: 1.9rem;
       }
       #intro-text {
         font-size: 1.6rem;
-      }
-      .notes-header {
-        font-size: 1.3rem;
-        padding: 16px 20px;
-      }
-      .chapter-header {
-        font-size: 1rem;
       }
     }
 
@@ -594,6 +463,11 @@
       .project-title {
         font-size: 1.5rem;
       }
+    }
+
+    /* extra engineering glow */
+    .glow-text {
+      text-shadow: 0 0 5px rgba(0,210,255,0.3);
     }
 
     .cursor-blink {
@@ -644,142 +518,187 @@
   <!-- Projects Section -->
   <section id="projects">
     <h2 class="section-title">// technical infrastructure</h2>
+
     <!-- E-Ball -->
     <div class="project-card">
       <div class="project-row">
         <div class="project-text">
           <h3 class="project-title">E-Ball Model · Vector Control</h3>
           <p class="project-meta">UBC | Dec 2025 – Jan 2026 | Robotics & BLDC</p>
-          <div class="project-tags"><span>ESP32</span><span>C++</span><span>BLDC</span><span>PWM</span><span>Bluetooth (DS4)</span><span>ESC</span></div>
-          <p class="project-desc">Engineered a high-torque Bluetooth-controlled robotic vehicle driven by three-phase sensorless BLDC motors. Wrote custom C++ firmware on ESP32 using Arduino IDE, implementing smooth speed regulation via 50kHz PWM signals and dynamic current limiting. Integrated DualShock 4 wireless controller for real-time teleoperation with responsive acceleration curves.</p>
-          <div class="project-links"><a href="#" target="_blank">⚙️ Demo Repository →</a></div>
+          <div class="project-tags">
+            <span>ESP32</span><span>C++</span><span>BLDC</span><span>PWM</span><span>Bluetooth (DS4)</span><span>ESC</span>
+          </div>
+          <p class="project-desc">
+            Engineered a high-torque Bluetooth-controlled robotic vehicle driven by three-phase sensorless BLDC motors. 
+            Wrote custom C++ firmware on ESP32 using Arduino IDE, implementing smooth speed regulation via 50kHz PWM signals and dynamic current limiting. 
+            Integrated DualShock 4 wireless controller for real-time teleoperation with responsive acceleration curves.
+          </p>
+          <div class="project-links">
+            <a href="#" target="_blank">⚙️ Demo Repository →</a>
+          </div>
         </div>
-        <div class="project-image-container"><img src="eball.jpg" alt="E-Ball Model"></div>
+        <div class="project-image-container">
+          <img src="eball.jpg" alt="E-Ball Model">
+        </div>
       </div>
     </div>
+
     <!-- Coin Robot -->
     <div class="project-card">
       <div class="project-row">
         <div class="project-text">
           <h3 class="project-title">Coin Picking Robot · RF & H-Bridge</h3>
           <p class="project-meta">UBC | Apr 2025 – May 2025 | Embedded Collaboration</p>
-          <div class="project-tags"><span>C</span><span>PIC18</span><span>EFM8</span><span>RF Modules</span><span>H-Bridge</span><span>Metal Detection</span></div>
-          <p class="project-desc">Architected a remote-controlled robotic system that autonomously picks Canadian coins using inductive sensing. Wrote low-level C for PIC18 and EFM8 microcontrollers using CrossIDE, designed custom H-bridge motor driver, and implemented robust 433MHz RF communication. Collaborated in a team of five, achieving 95% coin detection accuracy.</p>
-          <div class="project-links"><a href="https://github.com/JeremyF003/Picking-coin-robot" target="_blank">📁 View Code →</a></div>
+          <div class="project-tags">
+            <span>C</span><span>PIC18</span><span>EFM8</span><span>RF Modules</span><span>H-Bridge</span><span>Metal Detection</span>
+          </div>
+          <p class="project-desc">
+            Architected a remote-controlled robotic system that autonomously picks Canadian coins using inductive sensing. 
+            Wrote low-level C for PIC18 and EFM8 microcontrollers using CrossIDE, designed custom H-bridge motor driver, and implemented robust 433MHz RF communication. 
+            Collaborated in a team of five, achieving 95% coin detection accuracy during demonstration.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/JeremyF003/Picking-coin-robot" target="_blank">📁 View Code →</a>
+          </div>
         </div>
-        <div class="project-image-container"><img src="coin.jpg" alt="Coin Robot"></div>
+        <div class="project-image-container">
+          <img src="coin.jpg" alt="Coin Robot">
+        </div>
       </div>
     </div>
+
     <!-- Reflow Oven -->
     <div class="project-card">
       <div class="project-row">
         <div class="project-text">
           <h3 class="project-title">Reflow Oven Controller · Precision PID</h3>
           <p class="project-meta">UBC | Mar 2025 – May 2025 | Industrial Control</p>
-          <div class="project-tags"><span>A51 Assembly</span><span>N76E003</span><span>Thermocouple</span><span>PID</span><span>Zero-Cross</span></div>
-          <p class="project-desc">Developed a reflow soldering oven controller with real-time temperature profiling, programmed entirely in A51 assembly on N76E003. Implemented a PI control algorithm with triac switching for stable heat ramp-up, reducing overshoot below 5°C.</p>
-          <div class="project-links"><a href="https://github.com/JeremyF003/Reflow-oven" target="_blank">🔥 View Code →</a></div>
+          <div class="project-tags">
+            <span>A51 Assembly</span><span>N76E003</span><span>Thermocouple</span><span>PID</span><span>Zero-Cross</span>
+          </div>
+          <p class="project-desc">
+            Developed a reflow soldering oven controller with real-time temperature profiling, programmed entirely in A51 assembly on N76E003. 
+            Implemented a PI control algorithm with triac switching for stable heat ramp-up, reducing overshoot below 5°C. 
+            Collaborated with six teammates to validate J-STD-020 profiles and deliver robust performance.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/JeremyF003/Reflow-oven" target="_blank">🔥 View Code →</a>
+          </div>
         </div>
-        <div class="project-image-container"><img src="reflow.jpg" alt="Reflow Oven"></div>
+        <div class="project-image-container">
+          <img src="reflow.jpg" alt="Reflow Oven">
+        </div>
       </div>
     </div>
+
     <!-- Line Following Robot -->
     <div class="project-card">
       <div class="project-row">
         <div class="project-text">
           <h3 class="project-title">Line Following Robot · Autonomous Control</h3>
           <p class="project-meta">KPU | Apr 2024 – May 2024 | Optical Sensing</p>
-          <div class="project-tags"><span>C</span><span>PIC18F46K42</span><span>Phototransistors</span><span>PID Line</span><span>MPLAB</span></div>
-          <p class="project-desc">Programmed an autonomous line-following robot using PID-based steering correction. Implemented sensor fusion from 5-channel IR array, wrote efficient C interrupt routines on PIC18. Optimized motor speed differential for sharp curves, achieving smooth path tracking at 0.4m/s.</p>
-          <div class="project-links"><a href="https://github.com/JeremyF003/WheelsonRobot" target="_blank">🤖 View Code →</a></div>
+          <div class="project-tags">
+            <span>C</span><span>PIC18F46K42</span><span>Phototransistors</span><span>PID Line</span><span>MPLAB</span>
+          </div>
+          <p class="project-desc">
+            Programmed an autonomous line-following robot using PID-based steering correction. 
+            Implemented sensor fusion from 5-channel IR array, wrote efficient C interrupt routines on PIC18. 
+            Optimized motor speed differential for sharp curves, achieving smooth path tracking at 0.4m/s.
+          </p>
+          <div class="project-links">
+            <a href="https://github.com/JeremyF003/WheelsonRobot" target="_blank">🤖 View Code →</a>
+          </div>
         </div>
-        <div class="project-image-container"><img src="line.jpg" alt="Line Following Robot"></div>
+        <div class="project-image-container">
+          <img src="line.jpg" alt="Line Following Robot">
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Technical Notes Section - FIXED: fully interactive collapse/expand, MathJax integration -->
-  <section id="technical-notes">
-    <h2 class="section-title">// technical notes</h2>
-    <div class="notes-book">
-      <!-- main book header: Stewart Calculus -->
-      <button class="notes-header" onclick="toggleNotesSection('calc-notes-main')">
-        📘 Stewart Calculus: Early Transcendentals
-        <span id="calc-notes-main-symbol">+</span>
+  <!-- Technical Notes Section -->
+
+  <!-- Technical Notes -->
+<section id="technical-notes">
+  <h2 class="section-title">// technical notes</h2>
+
+  <!-- Book -->
+  <div class="notes-book">
+
+    <button class="notes-header" onclick="toggleSection('calc-notes')">
+      📘 Stewart Calculus
+      <span>+</span>
+    </button>
+
+    <div class="notes-content" id="calc-notes">
+
+      <!-- Chapter -->
+      <button class="chapter-header" onclick="toggleSection('calc-1-1')">
+        1.1 Functions and Models
       </button>
-      <div id="calc-notes-main" class="notes-content" style="display: none;">
-        
-        <!-- Chapter 1.1 -->
-        <button class="chapter-header" onclick="toggleChapter('calc-chap-1-1')">
-          §1.1 Functions and Models <span id="calc-chap-1-1-symbol">+</span>
-        </button>
-        <div id="calc-chap-1-1" class="chapter-content" style="display: none;">
-          <div class="note-problem">
-            <h3>Problem 12: Limit Evaluation</h3>
-            <p>Evaluate the limit:</p>
-            <div class="latex-block">\[ \lim_{x \to 2} \frac{x^2 - 4}{x - 2} \]</div>
-            <p>Factor the numerator:</p>
-            <div class="latex-block">\[ x^2 - 4 = (x-2)(x+2) \]</div>
-            <p>Simplifying:</p>
-            <div class="latex-block">\[ \frac{(x-2)(x+2)}{x-2} = x+2 \]</div>
-            <p>Therefore:</p>
-            <div class="latex-block">\[ \lim_{x \to 2} (x+2) = 4 \]</div>
+
+      <div class="chapter-content" id="calc-1-1">
+
+        <div class="note-problem">
+          <h3>Problem 12</h3>
+
+          <p>
+            Evaluate the limit:
+          </p>
+
+          <div class="latex-block">
+            \[
+            \lim_{x \to 2} \frac{x^2 - 4}{x - 2}
+            \]
           </div>
-          <div class="note-problem">
-            <h3>Problem 24: Continuity & Differentiability</h3>
-            <p>Find values of \(a\) and \(b\) that make \(f\) continuous everywhere:</p>
-            <div class="latex-block">\[ f(x) = \begin{cases} \frac{x^2-4}{x-2} & x<2 \\ ax^2 - bx + 3 & 2 \le x < 3 \\ 2x - a + b & x \ge 3 \end{cases} \]</div>
-            <p>Solution approach: using limit compatibility from both sides yields system of equations: \(a=1, b=2\).</p>
+
+          <p>
+            Factor the numerator:
+          </p>
+
+          <div class="latex-block">
+            \[
+            x^2 - 4 = (x-2)(x+2)
+            \]
           </div>
+
+          <p>
+            Simplifying:
+          </p>
+
+          <div class="latex-block">
+            \[
+            \frac{(x-2)(x+2)}{x-2} = x+2
+            \]
+          </div>
+
+          <p>
+            Therefore:
+          </p>
+
+          <div class="latex-block">
+            \[
+            \lim_{x \to 2} (x+2) = 4
+            \]
+          </div>
+
         </div>
 
-        <!-- Chapter 1.2 Mathematical Models -->
-        <button class="chapter-header" onclick="toggleChapter('calc-chap-1-2')">
-          §1.2 Mathematical Models <span id="calc-chap-1-2-symbol">+</span>
-        </button>
-        <div id="calc-chap-1-2" class="chapter-content" style="display: none;">
-          <div class="note-problem">
-            <h3>Linearization of Circuits</h3>
-            <p>For small-signal analysis of a diode, current \(I = I_s(e^{V/V_T} - 1)\). Linearize around \(V_0\):</p>
-            <div class="latex-block">\[ I \approx I_0 + \frac{I_s}{V_T} e^{V_0/V_T} (V - V_0) \]</div>
-            <p>Used in small-signal equivalent resistance calculations.</p>
-          </div>
-        </div>
-
-        <!-- Chapter 2 Derivatives in Control -->
-        <button class="chapter-header" onclick="toggleChapter('calc-chap-2-3')">
-          §2.3 Differentiation Rules for PID Tuning <span id="calc-chap-2-3-symbol">+</span>
-        </button>
-        <div id="calc-chap-2-3" class="chapter-content" style="display: none;">
-          <div class="note-problem">
-            <h3>Derivative of Error Signal</h3>
-            <p>In PID control, \(u(t) = K_p e(t) + K_i \int e(t)dt + K_d \frac{de}{dt}\). Given \(e(t) = r(t) - y(t)\) with step response, compute derivative for noise attenuation.</p>
-            <div class="latex-block">\[ \frac{d}{dt}e(t) = -\dot{y}(t) \]</div>
-            <p>Practical implementation uses filtered derivative: \( \frac{sK_d}{1+\tau s} \).</p>
-          </div>
-        </div>
-
-        <!-- Extra note: Laplace & Transfer Functions -->
-        <button class="chapter-header" onclick="toggleChapter('calc-chap-laplace')">
-          §Appendix: Laplace Transforms for Control <span id="calc-chap-laplace-symbol">+</span>
-        </button>
-        <div id="calc-chap-laplace" class="chapter-content" style="display: none;">
-          <div class="note-problem">
-            <h3>Motor Transfer Function</h3>
-            <p>DC motor electrical & mechanical dynamics:</p>
-            <div class="latex-block">\[ \frac{\Theta(s)}{V_a(s)} = \frac{K_t}{s[(L_a s + R_a)(J s + b) + K_t K_b]} \]</div>
-            <p>Simplified first-order model: \(\frac{K}{s(\tau s + 1)}\) for velocity control loop design.</p>
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
 
+    </div>
+
+  </div>
+</section>
+  
   <!-- Contact Section -->
   <section id="contact">
     <div class="contact-card">
       <h2>⟨ connect ⟩</h2>
-      <p class="contact-text">Let's collaborate on embedded systems, control research, or hardware acceleration. Reach out for engineering challenges.</p>
+      <p class="contact-text">
+        Let's collaborate on embedded systems, control research, or hardware acceleration. 
+        Reach out for engineering challenges.
+      </p>
       <div class="contact-links">
         <a href="https://www.linkedin.com/in/jeremy-fernandez-264432248" target="_blank">🔗 LinkedIn</a>
         <a href="https://github.com/JeremyF003" target="_blank">🐙 GitHub</a>
@@ -794,39 +713,43 @@
 </div>
 
 <script>
-  // INTRO TYPING
+  // INTRO TYPING WITH ADVANCED EFFECTS
   const introMsg = ">_ SYSTEM BOOT: JEREMY FERNANDEZ";
   let introIdx = 0;
   const introElem = document.getElementById("intro-text");
   const mainDiv = document.getElementById("main-content");
   const introContainer = document.getElementById("intro");
 
+  // type intro message
   function typeIntroSequence() {
     if (introIdx < introMsg.length) {
       introElem.innerHTML += introMsg.charAt(introIdx);
       introIdx++;
       setTimeout(typeIntroSequence, 55);
     } else {
+      // after typed intro, start fade
       setTimeout(() => {
         introContainer.classList.add("fade-out");
         setTimeout(() => {
           introContainer.style.display = "none";
           mainDiv.style.display = "block";
-          setTimeout(() => { mainDiv.style.opacity = "1"; }, 20);
+          // force reflow then opacity transition
+          setTimeout(() => {
+            mainDiv.style.opacity = "1";
+          }, 20);
+          // start name typing in hero
           startNameTyping();
-          // Force MathJax re-render after content appears
-          if (window.MathJax) {
-            MathJax.typesetPromise();
-          }
         }, 1000);
       }, 800);
     }
   }
 
+  // Name typing in hero with engineering cursor
   const nameTarget = "Jeremy Fernandez";
   let nameIdx = 0;
   const typingSpan = document.getElementById("typing-name");
   let nameActive = false;
+
   function startNameTyping() {
     if (nameActive) return;
     nameActive = true;
@@ -837,6 +760,7 @@
         nameIdx++;
         setTimeout(typeNameChar, 70);
       } else {
+        // add final cursor blink style
         typingSpan.style.borderRight = "2px solid #0ff";
         typingSpan.style.animation = "blinkCarets 0.8s infinite";
       }
@@ -844,31 +768,42 @@
     typeNameChar();
   }
 
+  // fallback scroll function
   window.scrollToProjects = function() {
-    document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
-  };
-
-  // TOGGLE FUNCTIONS for Technical Notes with dynamic symbols
-  window.toggleNotesSection = function(sectionId) {
-    const content = document.getElementById(sectionId);
-    const symbolSpan = document.getElementById(sectionId + "-symbol");
-    if (content) {
-      if (content.style.display === "none" || content.style.display === "") {
-        content.style.display = "block";
-        if (symbolSpan) symbolSpan.innerHTML = "−";
-      } else {
-        content.style.display = "none";
-        if (symbolSpan) symbolSpan.innerHTML = "+";
-      }
-      // re-render any new math if needed
-      if (window.MathJax && content.style.display === "block") {
-        MathJax.typesetPromise();
-      }
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
-  window.toggleChapter = function(chapterId) {
-    const chapterDiv = document.getElementById(chapterId);
-    const symbolSpan = document.getElementById(chapterId + "-symbol");
-    if (chapterDiv) {
-     
+  // Replace placeholder images with dynamic better engineering style images? optional - but we can use actual placeholder but keep them relevant. 
+  // However, to keep original references, we can replace the src with actual demo-style but for consistency keep picture but add data.
+  // For high-quality we might replace with engineering vector, but we already maintain template.
+  
+  // add preload images potentially clean alt
+  // Also dynamically set profile image to a more professional attractive representation? Using svg?
+  const profileImage = document.getElementById("profileImage");
+  if(profileImage) {
+    profileImage.src = "profile.jpg";
+    profileImage.alt = "Jeremy Fernandez - Electrical Engineer";
+  }
+  
+  // preload all project images to modern schematic style represent
+  const projectImgs = document.querySelectorAll(".project-image-container img");
+  const imgSources = [
+    "eball.jpg",
+    "coin.jpg",
+    "reflow.jpg",
+    "line.jpg"
+  ];
+  for (let i = 0; i < projectImgs.length && i < imgSources.length; i++) {
+    if(projectImgs[i]) projectImgs[i].src = imgSources[i];
+  }
+
+  // start intro on load
+  window.onload = () => {
+    typeIntroSequence();
+  };
+</script>
+</body>
+</html>
